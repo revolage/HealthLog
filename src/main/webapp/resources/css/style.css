@@ -1,7 +1,10 @@
 body {
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: #eee;
+    background-color: #f7f7f7;
+}
+p, span {
+    font-size: 18px;
 }
 
 .form-signin {
@@ -45,4 +48,35 @@ body {
 
 .has-error {
     color: red
+}
+
+.main-user-information {
+    margin: 15px;
+    border: 2px solid #71d8a3;
+    border-radius: 10px;
+    background-color: #fff;
+    
+}
+
+.user-photo {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #71d8a3;
+    background-color: #71d8a3;
+    margin: 5% auto;
+}
+.user-fullname{
+    font-size: 24px;
+    font-weight: bold;
+}
+.text-block p span {
+    font-weight: bold;
+}
+h2 {
+    
+}
+h2 span {
+    font-weight: bold;
+    font-size: 38px;
+}
 }
