@@ -2,11 +2,11 @@ package net.proselyte.springsecurityapp.controller;
 
 import net.proselyte.springsecurityapp.model.Appointment;
 import net.proselyte.springsecurityapp.model.Doctor;
-import net.proselyte.springsecurityapp.model.User;
+import net.proselyte.springsecurityapp.model.Patient;
 import net.proselyte.springsecurityapp.service.AppointmentService;
 import net.proselyte.springsecurityapp.service.DoctorService;
 import net.proselyte.springsecurityapp.service.SecurityService;
-import net.proselyte.springsecurityapp.service.UserService;
+import net.proselyte.springsecurityapp.service.PatientService;
 import net.proselyte.springsecurityapp.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -21,12 +21,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 /**
- * Controller for {@link net.proselyte.springsecurityapp.model.User}`s pages.
+ * Controller for {@link Patient}`s pages.
  */
 @Controller
 public class UserController {
     @Autowired
-    private UserService userService;
+    private PatientService patientService;
 
     @Autowired
     private AppointmentService appointmentService;
@@ -42,18 +42,18 @@ public class UserController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
-        model.addAttribute("userForm", new User());
+        model.addAttribute("userForm", new Patient());
         return "registration";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
-        userValidator.validate(userForm, bindingResult);
+    public String registration(@ModelAttribute("userForm") Patient patientForm, BindingResult bindingResult, Model model) {
+        userValidator.validate(patientForm, bindingResult);
         if (bindingResult.hasErrors()) {
             return "registration";
         }
-        userService.save(userForm);
-        securityService.autoLogin(userForm.getUsername(), userForm.getConfirmPassword());
+        patientService.save(patientForm);
+        securityService.autoLogin(patientForm.getUsername(), patientForm.getConfirmPassword());
         return "redirect:/welcome";
     }
 
@@ -74,20 +74,20 @@ public class UserController {
         //doctorService.test();
         String loggedInUsername = auth.getName(); //get logged in username
 //        String loggedInUsername = securityService.findLoggedInUsername();
-        User user = userService.findByUsername(loggedInUsername);
-        model.addAttribute("user", user);
+        Patient patient = patientService.findByUsername(loggedInUsername);
+        model.addAttribute("user", patient); //patient
 
-        //Appointment appointment = appointmentService.findAppointmentById(user.getId());
+        //Appointment appointment = appointmentService.findAppointmentById(patient.getId());
         //model.addAttribute("appointment", appointment);
 
         List<Doctor> doctorList = doctorService.findAllDoctors();
         model.addAttribute("doctorList", doctorList);
 
 
-        List<Appointment> appointmentListPlaned = appointmentService.appointmentsOfUserPlaned(user.getId());
+        List<Appointment> appointmentListPlaned = appointmentService.appointmentsOfUserPlaned(patient.getId());
         model.addAttribute("appointmentListPlaned", appointmentListPlaned);
 
-        List<Appointment> appointmentListEnded = appointmentService.appointmentsOfUserEnded(user.getId());
+        List<Appointment> appointmentListEnded = appointmentService.appointmentsOfUserEnded(patient.getId());
         model.addAttribute("appointmentListEnded", appointmentListEnded);
         return "welcome";
     }

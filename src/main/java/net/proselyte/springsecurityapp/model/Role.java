@@ -18,7 +18,7 @@ public class Role {
     private String name;
 
     @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
+    private Set<Patient> patients;
 
     public Role() {
     }
@@ -39,12 +39,12 @@ public class Role {
         this.name = name;
     }
 
-    public Set<User> getUsers() {
-        return users;
+    public Set<Patient> getPatients() {
+        return patients;
     }
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public void setPatients(Set<Patient> patients) {
+        this.patients = patients;
     }
 
     @Override
@@ -52,7 +52,7 @@ public class Role {
         return "Role{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", users=" + users +
+                ", patients=" + patients +
                 '}';
     }
 }

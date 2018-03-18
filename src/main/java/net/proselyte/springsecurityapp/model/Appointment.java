@@ -13,8 +13,9 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "id_doctor")
-    private Long id_doctor;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_doctor", nullable = false)
+    private Doctor doctor;
 
     @Column(name = "id_patient")
     private Long patientId;

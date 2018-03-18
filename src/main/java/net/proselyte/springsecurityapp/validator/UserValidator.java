@@ -1,7 +1,7 @@
 package net.proselyte.springsecurityapp.validator;
 
-import net.proselyte.springsecurityapp.model.User;
-import net.proselyte.springsecurityapp.service.UserService;
+import net.proselyte.springsecurityapp.model.Patient;
+import net.proselyte.springsecurityapp.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -9,37 +9,37 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 /**
- * Validator for {@link net.proselyte.springsecurityapp.model.User} class,
+ * Validator for {@link Patient} class,
  * inplements {@link Validator} interface.
  */
 
 @Component
 public class UserValidator implements Validator{
     @Autowired
-    private UserService userService;
+    private PatientService patientService;
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return User.class.equals(aClass);
+        return Patient.class.equals(aClass);
     }
 
     @Override
     public void validate(Object o, Errors errors) {
-        User user = (User) o;
+        Patient patient = (Patient) o;
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"username","Required");
-        if(user.getUsername().length() < 8 || user.getUsername().length() > 32){
+        if(patient.getUsername().length() < 8 || patient.getUsername().length() > 32){
             errors.rejectValue("username","Size.userForm.username");
         }
 
-        if(userService.findByUsername(user.getUsername())!=null){
+        if(patientService.findByUsername(patient.getUsername())!=null){
             errors.rejectValue("username","Duplicate.userForm.username");
         }
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Required");
-        if(user.getPassword().length() < 8 || user.getPassword().length() >32){
+        if(patient.getPassword().length() < 8 || patient.getPassword().length() >32){
             errors.rejectValue("password","Size.userForm.password");
         }
-        if(!user.getConfirmPassword().equals(user.getPassword())){
+        if(!patient.getConfirmPassword().equals(patient.getPassword())){
             errors.rejectValue("confirmPassword","Diffrent.userForm.password");
         }
 

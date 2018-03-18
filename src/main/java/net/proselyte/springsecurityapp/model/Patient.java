@@ -5,11 +5,11 @@ import java.util.Date;
 import java.util.Set;
 
 /**
- * Simple JavaBeen domain object that represent a User
+ * Simple JavaBeen domain object that represent a Patient
  */
 @Entity
 @Table(name="patients")
-public class User {
+public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

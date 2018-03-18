@@ -39,7 +39,7 @@ public class Doctor {
     @Column(name = "photo")
     private Boolean photo;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_department", nullable = false)
     private Department department;
 

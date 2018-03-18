@@ -24,24 +24,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <section class="main-user-information">
+                    <section class="main-patient-information">
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="user-photo">
-                                    <img src="${user.photo}">
+                                <div class="patient-photo">
+                                    <img src="${patient.photo}">
                                 </div>
                             </div>
                             <div class="col-md-8">
                                 <div class="text-block">
-                                    <p class="user-fullname">${user.surname} ${user.name} ${user.fathername}</p>
-                                    <p>Дата народження: <span>${user.birthday}</span></p>
-                                    <p>Група крові: <span>${user.bloodType}</span> </p>
-                                    <p>Алергічні реакії: <span>${user.allergies.length() > 0 ? user.allergies : "null"}</span></p>
+                                    <p class="patient-fullname">${patient.surname} ${patient.name} ${patient.fathername}</p>
+                                    <p>Дата народження: <span>${patient.birthday}</span></p>
+                                    <p>Група крові: <span>${patient.bloodType}</span> </p>
+                                    <p>Алергічні реакії: <span>${patient.allergies.length() > 0 ? patient.allergies : "null"}</span></p>
                                     <p>
                                         Хронічні хвороби:
                                         <c:choose>
-                                            <c:when test="${user.chronicDiseases.length() > 0}">
-                                                <span>${user.chronicDiseases}</span>
+                                            <c:when test="${patient.chronicDiseases.length() > 0}">
+                                                <span>${patient.chronicDiseases}</span>
                                             </c:when>
                                             <c:otherwise>
                                                 <span>Немає</span>
@@ -51,8 +51,8 @@
                                     <p>
                                         Особливі примітки:
                                         <c:choose>
-                                            <c:when test="${user.specialNotes.length() > 0}">
-                                                <span>${user.specialNotes}</span>
+                                            <c:when test="${patient.specialNotes.length() > 0}">
+                                                <span>${patient.specialNotes}</span>
                                             </c:when>
                                             <c:otherwise>
                                                 <span>Немає</span>
@@ -82,6 +82,8 @@
                     <c:if test="${appointmentListEnded.size() > 0}">
                         <c:forEach items="${appointmentListEnded}" var="endedAppointment">
                             <p>Дата: ${endedAppointment.date}</p>
+                            <p>Відділ: ${endedAppointment.doctor.department.name}</p>
+                            <p>Лікар: ${endedAppointment.doctor.name} ${endedAppointment.doctor.surname}</p>
                             <p>Симптоми: ${endedAppointment.symptoms}</p>
                             <p>Діагноз: ${endedAppointment.diagnosis}</p>
                             <p>Лікування: ${endedAppointment.medication}</p>
@@ -92,7 +94,7 @@
         </div>
 
         <span></span>
-        <!--<span>Your email: ${user.userEmail}</span>-->
+        <!--<span>Your email: ${patient.userEmail}</span>-->
 
     </c:if>
 </div>

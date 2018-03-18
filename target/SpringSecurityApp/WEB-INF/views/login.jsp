@@ -29,7 +29,8 @@
 
     <form method="POST" action="${contextPath}/login" class="form-signin">
         <h2 class="form-heading">Log in</h2>
-
+        <span>Patient<input type="radio" id="patient" name="options" value="Patient"></span>
+        <span>Doctor<input type="radio" id="doctor" name="options" value="Doctor"></span>
         <div class="form-group ${error != null ? 'has-error' : ''}">
             <span>${message}</span>
             <input name="username" type="text" class="form-control" placeholder="Username"

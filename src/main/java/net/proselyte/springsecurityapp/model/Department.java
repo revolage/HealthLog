@@ -16,7 +16,7 @@ public class Department {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    private Set<Doctor> doctors = new HashSet<Doctor>();
+//    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+//    private Set<Doctor> doctors = new HashSet<Doctor>();
     //Doctor doctor;
 }
