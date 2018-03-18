@@ -69,8 +69,8 @@
                         <div class="row">
                             <col-md-12>
                                 <c:forEach items="${appointmentListPlaned}" var="planedAppointment">
-                                    <p>${planedAppointment.date}</p>
-                                    <p>${planedAppointment.symptoms}</p>
+                                    <p>Дата: ${planedAppointment.date}</p>
+                                    <p>Симптоми: ${planedAppointment.symptoms}</p>
                                 </c:forEach>
                             </col-md-12>
                         </div>
@@ -79,16 +79,14 @@
             </div>
             <div class="row">
                 <section class="patient-history">
-                    <c:forEach items="${appointmentListEnded}" var="endedAppointment">
-                        <p>${endedAppointment.date}</p>
-                        <p>${endedAppointment.symptoms}</p>
-                        <p>${endedAppointment.id_doctor}</p>
-                        <c:forEach items="${doctorList}" var="doctor">
-                            <c:if test="${doctor.id = endedAppointment.id_doctor}">
-                                <p>${doctor.name}</p>
-                            </c:if>
+                    <c:if test="${appointmentListEnded.size() > 0}">
+                        <c:forEach items="${appointmentListEnded}" var="endedAppointment">
+                            <p>Дата: ${endedAppointment.date}</p>
+                            <p>Симптоми: ${endedAppointment.symptoms}</p>
+                            <p>Діагноз: ${endedAppointment.diagnosis}</p>
+                            <p>Лікування: ${endedAppointment.medication}</p>
                         </c:forEach>
-                    </c:forEach>
+                    </c:if>
                 </section>
             </div>
         </div>
