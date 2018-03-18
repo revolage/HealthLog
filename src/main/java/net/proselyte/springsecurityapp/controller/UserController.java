@@ -1,6 +1,10 @@
 package net.proselyte.springsecurityapp.controller;
 
+import net.proselyte.springsecurityapp.model.Appointment;
+import net.proselyte.springsecurityapp.model.Doctor;
 import net.proselyte.springsecurityapp.model.User;
+import net.proselyte.springsecurityapp.service.AppointmentService;
+import net.proselyte.springsecurityapp.service.DoctorService;
 import net.proselyte.springsecurityapp.service.SecurityService;
 import net.proselyte.springsecurityapp.service.UserService;
 import net.proselyte.springsecurityapp.validator.UserValidator;
@@ -14,6 +18,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 /**
  * Controller for {@link net.proselyte.springsecurityapp.model.User}`s pages.
  */
@@ -23,10 +29,16 @@ public class UserController {
     private UserService userService;
 
     @Autowired
+    private AppointmentService appointmentService;
+
+    @Autowired
     private SecurityService securityService;
 
     @Autowired
     private UserValidator userValidator;
+
+    @Autowired
+    private DoctorService doctorService;
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
@@ -59,10 +71,24 @@ public class UserController {
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        //doctorService.test();
         String loggedInUsername = auth.getName(); //get logged in username
 //        String loggedInUsername = securityService.findLoggedInUsername();
         User user = userService.findByUsername(loggedInUsername);
         model.addAttribute("user", user);
+
+        //Appointment appointment = appointmentService.findAppointmentById(user.getId());
+        //model.addAttribute("appointment", appointment);
+
+        List<Doctor> doctorList = doctorService.findAllDoctors();
+        model.addAttribute("doctorList", doctorList);
+
+
+        List<Appointment> appointmentListPlaned = appointmentService.appointmentsOfUserPlaned(user.getId());
+        model.addAttribute("appointmentListPlaned", appointmentListPlaned);
+
+        List<Appointment> appointmentListEnded = appointmentService.appointmentsOfUserEnded(user.getId());
+        model.addAttribute("appointmentListEnded", appointmentListEnded);
         return "welcome";
     }
 

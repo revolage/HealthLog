@@ -8,7 +8,7 @@ import java.util.Set;
  * Simple JavaBeen domain object that represent a User
  */
 @Entity
-@Table(name="users")
+@Table(name="patients")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

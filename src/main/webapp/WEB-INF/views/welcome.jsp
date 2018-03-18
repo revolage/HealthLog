@@ -28,15 +28,15 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="user-photo">
-                                <img src="${user.photo}">
-                            </div>
+                                    <img src="${user.photo}">
+                                </div>
                             </div>
                             <div class="col-md-8">
                                 <div class="text-block">
                                     <p class="user-fullname">${user.surname} ${user.name} ${user.fathername}</p>
                                     <p>Дата народження: <span>${user.birthday}</span></p>
                                     <p>Група крові: <span>${user.bloodType}</span> </p>
-                                    <p>Алергічні реакії: <span>${user.allergies.length() > 0 ? "${user.allergies}" : "Немає"}</span></p>
+                                    <p>Алергічні реакії: <span>${user.allergies.length() > 0 ? user.allergies : "null"}</span></p>
                                     <p>
                                         Хронічні хвороби:
                                         <c:choose>
@@ -64,7 +64,32 @@
                         </div>
                     </section>
                 </div>
-                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <section>
+                        <div class="row">
+                            <col-md-12>
+                                <c:forEach items="${appointmentListPlaned}" var="planedAppointment">
+                                    <p>${planedAppointment.date}</p>
+                                    <p>${planedAppointment.symptoms}</p>
+                                </c:forEach>
+                            </col-md-12>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <section class="patient-history">
+                    <c:forEach items="${appointmentListEnded}" var="endedAppointment">
+                        <p>${endedAppointment.date}</p>
+                        <p>${endedAppointment.symptoms}</p>
+                        <p>${endedAppointment.id_doctor}</p>
+                        <c:forEach items="${doctorList}" var="doctor">
+                            <c:if test="${doctor.id = endedAppointment.id_doctor}">
+                                <p>${doctor.name}</p>
+                            </c:if>
+                        </c:forEach>
+                    </c:forEach>
+                </section>
             </div>
         </div>
 
