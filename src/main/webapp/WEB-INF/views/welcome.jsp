@@ -24,8 +24,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <section class="main-patient-information">
-                        <div class="row">
+                    <div class="row">
+                        <section class="main-patient-information">
                             <div class="col-md-4">
                                 <div class="patient-photo">
                                     <img src="${patient.photo}">
@@ -61,8 +61,8 @@
                                     </p>
                                 </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
+                    </div>
                 </div>
                 <div class="col-md-4">
                     <div class="row">
@@ -76,6 +76,8 @@
                                             </c:forEach>
                                         </div>
                             </section>
+                            <div class="reserveAppointment btn btn-default">Запис на прийом</div>
+
                         </div>
                     </div>
                 </div>
@@ -84,12 +86,15 @@
                 <section class="patient-history">
                     <c:if test="${appointmentListEnded.size() > 0}">
                         <c:forEach items="${appointmentListEnded}" var="endedAppointment">
-                            <p>Дата: ${endedAppointment.date}</p>
-                            <p>Відділ: ${endedAppointment.doctor.department.name}</p>
-                            <p>Лікар: ${endedAppointment.doctor.name} ${endedAppointment.doctor.surname}</p>
-                            <p>Симптоми: ${endedAppointment.symptoms}</p>
-                            <p>Діагноз: ${endedAppointment.diagnosis}</p>
-                            <p>Лікування: ${endedAppointment.medication}</p>
+                            <div class="history-item">
+                                <span class="endedAppointment-date">${endedAppointment.date}</span>
+                                <div class="doctorPhoto"><img src="${endedAppointment.doctor.photo}"></div>
+                                <span class="doctorName">${endedAppointment.doctor.name} ${endedAppointment.doctor.surname} </span>
+                                <span class="departmentName">- [Відділ ${endedAppointment.doctor.department.name}]</span>
+                                <p class="symptoms">Симптоми: ${endedAppointment.symptoms}</p>
+                                <p>Діагноз: ${endedAppointment.diagnosis}</p>
+                                <p>Лікування: ${endedAppointment.medication}</p>
+                            </div>
                         </c:forEach>
                     </c:if>
                 </section>

@@ -37,7 +37,7 @@ public class Doctor {
     private String phone;
 
     @Column(name = "photo")
-    private Boolean photo;
+    private String photo;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_department", nullable = false)

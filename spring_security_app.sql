@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 19 2018 г., 02:18
+-- Время создания: Мар 19 2018 г., 16:10
 -- Версия сервера: 10.1.21-MariaDB
 -- Версия PHP: 5.6.30
 
@@ -46,9 +46,11 @@ CREATE TABLE `appointment` (
 INSERT INTO `appointment` (`id`, `id_patient`, `id_doctor`, `date`, `symptoms`, `diagnosis`, `medication`, `notes`, `isVisited`, `isCanceled`) VALUES
 (1, 2, 1, '2018-03-16', 'Сильні головні болі', 'Підвищений артеріальний тиск', 'Діуретик \"Верошпирон\" 1т х 3рази на день [Курс 7 днів]', 'Можливий прийом аналогічних препаратів тієї ж лікарскої групи', 1, NULL),
 (2, 2, 3, '2018-03-20', 'Запаморочення', NULL, NULL, NULL, 0, NULL),
-(3, 6, 1, '2018-03-17', 'Загальна втома. Біль в районі нирок', NULL, NULL, NULL, NULL, NULL),
+(3, 6, 1, '2018-03-17', 'Загальна втома. Біль в районі нирок', NULL, NULL, NULL, 1, NULL),
 (4, 2, 2, '2018-03-22', 'Біль у горлі', NULL, NULL, NULL, 0, NULL),
-(6, 2, 4, '2018-03-30', 'Сухий кашель', NULL, NULL, NULL, 0, NULL);
+(6, 2, 4, '2018-03-30', 'Сухий кашель', NULL, NULL, NULL, 0, NULL),
+(7, 2, 2, '2018-03-17', 'Гострий біль в животі', 'Даагноз не придумався', '4 чашки чаю 3 рази надень', '', 1, NULL),
+(8, 2, 4, '2018-01-09', 'Біль в коліні', 'Нестача кальцію в організмі', 'Кальцимін 1т х 4 рази на день [10днів]', NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -100,10 +102,10 @@ CREATE TABLE `doctors` (
 --
 
 INSERT INTO `doctors` (`id`, `email`, `password`, `name`, `surname`, `fathername`, `gender`, `birthday`, `phone`, `photo`, `id_department`) VALUES
-(1, 'jd@gmail.com', '$2a$11$xo89w3t7A91OUmLulGIy2u5hsUgyvhH6Ye499QWr0cF.BRfuIDKGS', 'Jhon', 'Dorian', 'JD', 1, '1990-03-01', '099-090-10-10', NULL, 1),
-(2, 'eliot-r@gmail.com', '$2a$11$xo89w3t7A91OUmLulGIy2u5hsUgyvhH6Ye499QWr0cF.BRfuIDKGS', 'Еліот', 'Рід', ' ', 0, '1980-09-11', '097-090-10-10', NULL, 1),
-(3, 'turk@gmail.com', '$2a$11$xo89w3t7A91OUmLulGIy2u5hsUgyvhH6Ye499QWr0cF.BRfuIDKGS', 'Кріс', 'Тьорк', 'Данкен', 1, '1978-05-22', '097-090-10-10', NULL, 2),
-(4, 'celso@gmail.com', '$2a$11$xo89w3t7A91OUmLulGIy2u5hsUgyvhH6Ye499QWr0cF.BRfuIDKGS', 'Роберт', 'Келсо', ' ', 1, '1970-05-12', '097-090-10-10', NULL, 3);
+(1, 'jd@gmail.com', '$2a$11$xo89w3t7A91OUmLulGIy2u5hsUgyvhH6Ye499QWr0cF.BRfuIDKGS', 'Jhon', 'Dorian', 'JD', 1, '1990-03-01', '099-090-10-10', 'resources\\img\\jd.jpg', 1),
+(2, 'eliot-r@gmail.com', '$2a$11$xo89w3t7A91OUmLulGIy2u5hsUgyvhH6Ye499QWr0cF.BRfuIDKGS', 'Еліот', 'Рід', ' ', 0, '1980-09-11', '097-090-10-10', 'resources\\img\\eliot.jpg', 1),
+(3, 'turk@gmail.com', '$2a$11$xo89w3t7A91OUmLulGIy2u5hsUgyvhH6Ye499QWr0cF.BRfuIDKGS', 'Кріс', 'Тьорк', 'Данкен', 1, '1978-05-22', '097-090-10-10', 'resources\\img\\turk.png', 2),
+(4, 'celso@gmail.com', '$2a$11$xo89w3t7A91OUmLulGIy2u5hsUgyvhH6Ye499QWr0cF.BRfuIDKGS', 'Роберт', 'Келсо', ' ', 1, '1970-05-12', '097-090-10-10', 'resources\\img\\kelso.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -135,7 +137,7 @@ CREATE TABLE `patients` (
 
 INSERT INTO `patients` (`id`, `username`, `password`, `email`, `name`, `surname`, `fathername`, `gender`, `birthday`, `phone`, `chronic_diseases`, `allergies`, `blood_type`, `special_notes`, `photo`) VALUES
 (1, 'vlad', '$2a$11$uSXS6rLJ91WjgOHhEGDx..VGs7MkKZV68Lv5rluwFu7HgtRn3dcXG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'revolage', '$2a$11$1bO/gCKv.0mcVHxKqHg/kuM1ltHz0ZaKo5JY.H0d5lHtVUHkr8yai', 'revolage@gmail.com', 'Владислав', 'Качур', 'Сергійович', 1, '1992-03-26', '096-738-2006', 'Гайморит', 'Арахіс; Фундук', 'O(I) Rh(+)', NULL, NULL),
+(2, 'revolage', '$2a$11$1bO/gCKv.0mcVHxKqHg/kuM1ltHz0ZaKo5JY.H0d5lHtVUHkr8yai', 'revolage@gmail.com', 'Владислав', 'Качур', 'Сергійович', 1, '1992-03-26', '096-738-2006', 'Гайморит', 'Арахіс; Фундук', 'O(I) Rh(+)', NULL, 'resources\\userPhoto\\vlad.jpg'),
 (3, 'testuser', '$2a$11$iMejy40lh.CBHeH84D.LbuCgC4QW.9CRejoeYSSPmPTy/xtZyS.8W', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (4, 'deleteUser', '$2a$11$xh04cYFaZFaSIxMBnSl68.paSq74WDV8B3qVfigtoE4jLN7SqSLAi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (5, 'starikov', '$2a$11$iiz.W1qeVopjNlOYgfpqIeZ17XO85FQnAYzccX1XXmSHKyYQ8BOvO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -235,7 +237,7 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT для таблицы `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT для таблицы `department`
 --

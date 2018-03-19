@@ -51,14 +51,18 @@ p, span {
     color: red
 }
 
-.main-patient-information,
-.planed-visits{
+
+.planed-visits,
+.main-patient-information{
     height: 250px;
     margin: 15px;
     border: 2px solid #71d8a3;
     border-radius: 10px;
     background-color: #fff;
     
+}
+.main-patient-information{
+    height: 300px;
 }
 .patient-photo {
     width: 150px;
@@ -117,6 +121,8 @@ h2 span {
 
 .planed-visits-title{
     height: 50px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
     background: rgba(111,216,161,1);
     background: -moz-linear-gradient(left, rgba(111,216,161,1) 0%, rgba(65,208,182,1) 50%, rgba(18,199,202,1) 100%);
     background: -webkit-gradient(left top, right top, color-stop(0%, rgba(111,216,161,1)), color-stop(50%, rgba(65,208,182,1)), color-stop(100%, rgba(18,199,202,1)));
@@ -136,4 +142,87 @@ h2 span {
 .planed-visits-title .glyphicon-calendar {
     margin-right: 5px;
     font-size: 16px;
+}
+
+.history-item,
+.patient{
+    margin: 25px;
+    padding: 20px;
+    border: 2px solid #71d8a3;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.history-item p,
+.patient p{
+    margin: 0;
+}
+
+.endedAppointment-date,
+.planedAppointment-date {
+    float: right;
+    font-weight: bold;
+}
+
+.doctorName,
+.patientName,
+.departmentName { 
+font-weight: bold;
+}
+
+
+p.symptoms{
+    margin-top: 10px;
+}
+
+.doctorPhoto,
+.patientPhoto {
+    display: inline;
+}
+
+.doctorPhoto img,
+.patientPhoto img{
+    width: 70px;
+    border-radius: 50%;
+    border: 2px solid #eee;
+}
+
+.reserveAppointment{
+    margin: 0 15px 0 15px;
+    display: block;
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: rgba(111,216,161,1);
+    background: -moz-linear-gradient(left, rgba(111,216,161,1) 0%, rgba(65,208,182,1) 50%, rgba(18,199,202,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(111,216,161,1)), color-stop(50%, rgba(65,208,182,1)), color-stop(100%, rgba(18,199,202,1)));
+    background: -webkit-linear-gradient(left, rgba(111,216,161,1) 0%, rgba(65,208,182,1) 50%, rgba(18,199,202,1) 100%);
+    background: -o-linear-gradient(left, rgba(111,216,161,1) 0%, rgba(65,208,182,1) 50%, rgba(18,199,202,1) 100%);
+    background: -ms-linear-gradient(left, rgba(111,216,161,1) 0%, rgba(65,208,182,1) 50%, rgba(18,199,202,1) 100%);
+    background: linear-gradient(to right, rgba(111,216,161,1) 0%, rgba(65,208,182,1) 50%, rgba(18,199,202,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6fd8a1', endColorstr='#12c7ca', GradientType=1 );
+    color: #eee;
+}
+
+.reserveAppointment {
+    border-radius: 5px;
+}
+.reserveAppointment:hover,
+.appointment:hover {
+    border-color:#71d8a3;
+    color: #fff;
+}
+
+.appointment{
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: rgba(111,216,161,1);
+    background: -moz-linear-gradient(left, rgba(111,216,161,1) 0%, rgba(65,208,182,1) 50%, rgba(18,199,202,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(111,216,161,1)), color-stop(50%, rgba(65,208,182,1)), color-stop(100%, rgba(18,199,202,1)));
+    background: -webkit-linear-gradient(left, rgba(111,216,161,1) 0%, rgba(65,208,182,1) 50%, rgba(18,199,202,1) 100%);
+    background: -o-linear-gradient(left, rgba(111,216,161,1) 0%, rgba(65,208,182,1) 50%, rgba(18,199,202,1) 100%);
+    background: -ms-linear-gradient(left, rgba(111,216,161,1) 0%, rgba(65,208,182,1) 50%, rgba(18,199,202,1) 100%);
+    background: linear-gradient(to right, rgba(111,216,161,1) 0%, rgba(65,208,182,1) 50%, rgba(18,199,202,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6fd8a1', endColorstr='#12c7ca', GradientType=1 );
+    color: #eee;
 }
