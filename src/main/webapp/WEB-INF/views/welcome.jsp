@@ -36,7 +36,7 @@
                                     <p class="patient-fullname">${patient.surname} ${patient.name} ${patient.fathername}</p>
                                     <p>Дата народження: <span>${patient.birthday}</span></p>
                                     <p>Група крові: <span>${patient.bloodType}</span> </p>
-                                    <p>Алергічні реакії: <span>${patient.allergies.length() > 0 ? patient.allergies : "null"}</span></p>
+                                    <p>Алергічні реакії: <span>${patient.allergies.length() > 0 ? patient.allergies : "Немає"}</span></p>
                                     <p>
                                         Хронічні хвороби:
                                         <c:choose>
@@ -65,16 +65,19 @@
                     </section>
                 </div>
                 <div class="col-md-4">
-                    <section>
-                        <div class="row">
-                            <col-md-12>
-                                <c:forEach items="${appointmentListPlaned}" var="planedAppointment">
-                                    <p>Дата: ${planedAppointment.date}</p>
-                                    <p>Симптоми: ${planedAppointment.symptoms}</p>
-                                </c:forEach>
-                            </col-md-12>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <section class="planed-visits">
+                                <div class="planed-visits-title"><p><span class="glyphicon glyphicon-calendar"></span>МАЙБУТНІ ВІЗИТИ</p></div>
+                                        <div class="visit-item">
+                                            <c:forEach items="${appointmentListPlaned}" var="planedAppointment">
+                                                <p>${planedAppointment.date} - ${planedAppointment.doctor.name} ${planedAppointment.doctor.surname} <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<p>Дата: ${planedAppointment.date}</p><p>Лікар: ${planedAppointment.doctor.name} ${planedAppointment.doctor.surname}</p><p>Симптоми: ${planedAppointment.symptoms}</p>"></span>
+                                                </p>
+                                            </c:forEach>
+                                        </div>
+                            </section>
                         </div>
-                    </section>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -100,5 +103,10 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('span[data-toggle=tooltip]').tooltip();
+    });
+</script>
 </body>
 </html>

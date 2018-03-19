@@ -7,6 +7,7 @@ p, span {
     font-size: 18px;
 }
 
+
 .form-signin {
     max-width: 330px;
     padding: 15px;
@@ -50,24 +51,29 @@ p, span {
     color: red
 }
 
-.main-user-information {
+.main-patient-information,
+.planed-visits{
+    height: 250px;
     margin: 15px;
     border: 2px solid #71d8a3;
     border-radius: 10px;
     background-color: #fff;
     
 }
-
-.user-photo {
+.patient-photo {
     width: 150px;
     height: 150px;
     border: 2px solid #71d8a3;
     background-color: #71d8a3;
-    margin: 5% auto;
+    margin: 25px auto;
+    border-radius: 50%;
 }
-.user-fullname{
+.patient-fullname{
     font-size: 24px;
     font-weight: bold;
+}
+.text-block {
+    margin-top: 15px;
 }
 .text-block p span {
     font-weight: bold;
@@ -79,4 +85,55 @@ h2 span {
     font-weight: bold;
     font-size: 38px;
 }
+
+.visit-item{
+    margin: 10px 25px;
+    text-align: center;
+}
+.visit-item .glyphicon {
+    top: 2px;
+    margin-left: 5px;
+    font-size: 16px;
+    color: #5bb386; 
+}
+
+.visit-item p {
+    padding-bottom: 5px;
+    border-bottom: 2px solid #71d8a3;
+}
+.visit-item .tooltip-inner{
+    background-color: #64ab86;
+    max-width: 400px;
+}
+.visit-item .tooltip-arrow{
+    border-top-color: #71d8a3;
+}
+.visit-item .tooltip-inner p{
+    margin: 0;
+    text-align: left;
+    font-size: 16px;
+    
+}
+
+.planed-visits-title{
+    height: 50px;
+    background: rgba(111,216,161,1);
+    background: -moz-linear-gradient(left, rgba(111,216,161,1) 0%, rgba(65,208,182,1) 50%, rgba(18,199,202,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(111,216,161,1)), color-stop(50%, rgba(65,208,182,1)), color-stop(100%, rgba(18,199,202,1)));
+    background: -webkit-linear-gradient(left, rgba(111,216,161,1) 0%, rgba(65,208,182,1) 50%, rgba(18,199,202,1) 100%);
+    background: -o-linear-gradient(left, rgba(111,216,161,1) 0%, rgba(65,208,182,1) 50%, rgba(18,199,202,1) 100%);
+    background: -ms-linear-gradient(left, rgba(111,216,161,1) 0%, rgba(65,208,182,1) 50%, rgba(18,199,202,1) 100%);
+    background: linear-gradient(to right, rgba(111,216,161,1) 0%, rgba(65,208,182,1) 50%, rgba(18,199,202,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6fd8a1', endColorstr='#12c7ca', GradientType=1 );
+}
+.planed-visits-title p {
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+    color: #fff;
+}
+
+.planed-visits-title .glyphicon-calendar {
+    margin-right: 5px;
+    font-size: 16px;
 }

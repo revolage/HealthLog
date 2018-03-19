@@ -2,6 +2,7 @@ package net.proselyte.springsecurityapp.model;
 
 import lombok.Data;
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
 
@@ -23,6 +24,11 @@ public class Appointment {
     @Column(name = "date")
     private Date date;
 
+    public String getDate() {
+
+        return new SimpleDateFormat("dd.MM.yyyy").format(date);
+    }
+
     @Column(name = "symptoms")
     private String symptoms;
 
@@ -40,6 +46,8 @@ public class Appointment {
 
     @Column(name = "isCanceled")
     private Boolean isCanceled;
+
+
 
 
 

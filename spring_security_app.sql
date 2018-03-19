@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 18 2018 г., 19:03
+-- Время создания: Мар 19 2018 г., 02:18
 -- Версия сервера: 10.1.21-MariaDB
 -- Версия PHP: 5.6.30
 
@@ -45,8 +45,10 @@ CREATE TABLE `appointment` (
 
 INSERT INTO `appointment` (`id`, `id_patient`, `id_doctor`, `date`, `symptoms`, `diagnosis`, `medication`, `notes`, `isVisited`, `isCanceled`) VALUES
 (1, 2, 1, '2018-03-16', 'Сильні головні болі', 'Підвищений артеріальний тиск', 'Діуретик \"Верошпирон\" 1т х 3рази на день [Курс 7 днів]', 'Можливий прийом аналогічних препаратів тієї ж лікарскої групи', 1, NULL),
-(2, 2, 3, '2018-03-20', 'Біль кутнього зубу', NULL, NULL, NULL, 0, NULL),
-(3, 6, 1, '2018-03-17', 'Загальна втома. Біль в районі нирок', NULL, NULL, NULL, NULL, NULL);
+(2, 2, 3, '2018-03-20', 'Запаморочення', NULL, NULL, NULL, 0, NULL),
+(3, 6, 1, '2018-03-17', 'Загальна втома. Біль в районі нирок', NULL, NULL, NULL, NULL, NULL),
+(4, 2, 2, '2018-03-22', 'Біль у горлі', NULL, NULL, NULL, 0, NULL),
+(6, 2, 4, '2018-03-30', 'Сухий кашель', NULL, NULL, NULL, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -233,7 +235,7 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT для таблицы `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT для таблицы `department`
 --

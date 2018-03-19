@@ -75,7 +75,7 @@ public class UserController {
         String loggedInUsername = auth.getName(); //get logged in username
 //        String loggedInUsername = securityService.findLoggedInUsername();
         Patient patient = patientService.findByUsername(loggedInUsername);
-        model.addAttribute("user", patient); //patient
+        model.addAttribute("patient", patient); //patient
 
         //Appointment appointment = appointmentService.findAppointmentById(patient.getId());
         //model.addAttribute("appointment", appointment);
