@@ -1,11 +1,11 @@
 package net.proselyte.springsecurityapp.service;
 
-import net.proselyte.springsecurityapp.dao.RoleDao;
 import net.proselyte.springsecurityapp.dao.PatientDao;
-import net.proselyte.springsecurityapp.model.Role;
+import net.proselyte.springsecurityapp.dao.RoleDao;
 import net.proselyte.springsecurityapp.model.Patient;
+import net.proselyte.springsecurityapp.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -23,7 +23,7 @@ public class PatientServiceImpl implements PatientService {
     private RoleDao roleDao;
 
     @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private PasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public void save(Patient patient) {

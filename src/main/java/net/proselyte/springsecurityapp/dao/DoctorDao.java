@@ -10,4 +10,5 @@ import java.util.List;
 public interface DoctorDao extends JpaRepository<Doctor, Long> {
     List<Doctor> findAll();
     Doctor findById(Long id);
+    Doctor findByName(String name);
 }

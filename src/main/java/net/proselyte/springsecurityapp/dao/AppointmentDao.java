@@ -10,7 +10,6 @@ import java.util.List;
 public interface AppointmentDao extends JpaRepository<Appointment, Long> {
     List<Appointment> findAll();
     Appointment findAppointmentById(Long id);
-    List<Appointment> findAppointmentsByPatientId(Long id);
     List<Appointment> findAppointmentsByPatientIdAndIsVisited(Long id, Boolean visited);
-    //List<Appointment> findAppointmentsById(Long id);
+    List<Appointment> findAppointmentsByDoctorIdAndIsVisited (Long doctor_id, Boolean isVisited);
 }

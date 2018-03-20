@@ -12,10 +12,6 @@ import java.util.List;
 public class AppointmentServiceImpl implements AppointmentService {
     @Autowired
     private AppointmentDao appointmentDao;
-    @Override
-    public void testAppointment() {
-        appointmentDao.findAll();
-    }
 
     @Override
     public Appointment findAppointmentById(Long id) {
@@ -32,6 +28,10 @@ public class AppointmentServiceImpl implements AppointmentService {
         return appointmentDao.findAppointmentsByPatientIdAndIsVisited(id, true);
     }
 
+    @Override
+    public List<Appointment> appointmentsOfDoctorPlaned(Long doctor_id) {
+        return appointmentDao.findAppointmentsByDoctorIdAndIsVisited(doctor_id, false);
+    }
 
 
 }

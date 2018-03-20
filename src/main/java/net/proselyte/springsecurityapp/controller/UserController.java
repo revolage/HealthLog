@@ -1,5 +1,7 @@
 package net.proselyte.springsecurityapp.controller;
 
+import net.proselyte.springsecurityapp.auth.CustomAuthToken;
+import net.proselyte.springsecurityapp.auth.UserType;
 import net.proselyte.springsecurityapp.model.Appointment;
 import net.proselyte.springsecurityapp.model.Doctor;
 import net.proselyte.springsecurityapp.model.Patient;
@@ -53,6 +55,7 @@ public class UserController {
             return "registration";
         }
         patientService.save(patientForm);
+        //todo: add userType from form
         securityService.autoLogin(patientForm.getUsername(), patientForm.getConfirmPassword());
         return "redirect:/welcome";
     }
@@ -70,26 +73,36 @@ public class UserController {
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        //doctorService.test();
-        String loggedInUsername = auth.getName(); //get logged in username
-//        String loggedInUsername = securityService.findLoggedInUsername();
-        Patient patient = patientService.findByUsername(loggedInUsername);
-        model.addAttribute("patient", patient); //patient
 
-        //Appointment appointment = appointmentService.findAppointmentById(patient.getId());
-        //model.addAttribute("appointment", appointment);
+        CustomAuthToken auth = (CustomAuthToken) SecurityContextHolder.getContext().getAuthentication();
+        String loggedInUsername = auth.getName();
+        UserType userType = auth.getUserType();
 
-        List<Doctor> doctorList = doctorService.findAllDoctors();
-        model.addAttribute("doctorList", doctorList);
+        if (UserType.PATIENT == userType) {
+            Patient patient = patientService.findByUsername(loggedInUsername);
+            model.addAttribute("patient", patient); //patient
 
+            //Appointment appointment = appointmentService.findAppointmentById(patient.getId());
+            //model.addAttribute("appointment", appointment);
 
-        List<Appointment> appointmentListPlaned = appointmentService.appointmentsOfUserPlaned(patient.getId());
-        model.addAttribute("appointmentListPlaned", appointmentListPlaned);
+            List<Doctor> doctorList = doctorService.findAllDoctors();
+            model.addAttribute("doctorList", doctorList);
 
-        List<Appointment> appointmentListEnded = appointmentService.appointmentsOfUserEnded(patient.getId());
-        model.addAttribute("appointmentListEnded", appointmentListEnded);
-        return "welcome";
+            List<Appointment> appointmentListPlaned = appointmentService.appointmentsOfUserPlaned(patient.getId());
+            model.addAttribute("appointmentListPlaned", appointmentListPlaned);
+
+            List<Appointment> appointmentListEnded = appointmentService.appointmentsOfUserEnded(patient.getId());
+            model.addAttribute("appointmentListEnded", appointmentListEnded);
+        } else if (UserType.DOCTOR == userType) {
+
+            Doctor doctor = doctorService.findDoctorByName(loggedInUsername);
+            model.addAttribute("doctor", doctor);
+
+            List<Appointment> appointmentListPlaned = appointmentService.appointmentsOfDoctorPlaned(doctor.getId());
+            model.addAttribute("appointmentListPlaned", appointmentListPlaned);
+        }
+
+        return UserType.PATIENT == userType ? "welcome" : "doctorPage";
     }
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)

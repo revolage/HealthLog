@@ -67,11 +67,17 @@ p, span {
 .patient-photo {
     width: 150px;
     height: 150px;
-    border: 2px solid #71d8a3;
-    background-color: #71d8a3;
     margin: 25px auto;
     border-radius: 50%;
 }
+.patient-photo img{
+    width: 150px;
+    height: 150px;
+    border: 2px solid #71d8a3;
+    background-color: #71d8a3;
+    border-radius: 50%;
+}
+
 .patient-fullname{
     font-size: 24px;
     font-weight: bold;

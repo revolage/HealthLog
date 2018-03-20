@@ -1,5 +1,8 @@
 package net.proselyte.springsecurityapp.service;
 
+import net.proselyte.springsecurityapp.auth.CustomAuthToken;
+import net.proselyte.springsecurityapp.auth.UserDetailsServiceImpl;
+import net.proselyte.springsecurityapp.auth.UserType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,19 +18,19 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class SecurityServiceImpl implements SecurityService{
+public class SecurityServiceImpl implements SecurityService {
     private static final Logger logger = LoggerFactory.getLogger(SecurityServiceImpl.class);
 
     @Autowired
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private UserDetailsService userDetailsService;
+    private UserDetailsServiceImpl userDetailsService;
 
     @Override
     public String findLoggedInUsername() {
         Object userDetails = SecurityContextHolder.getContext().getAuthentication().getDetails();
-        if(userDetails instanceof UserDetails){
+        if (userDetails instanceof UserDetails) {
             return ((UserDetails) userDetails).getUsername();
         }
         return null;
@@ -35,12 +38,12 @@ public class SecurityServiceImpl implements SecurityService{
 
     @Override
     public void autoLogin(String username, String password) {
-        UserDetails userDetails= userDetailsService.loadUserByUsername(username);
+        UserDetails userDetails = userDetailsService.loadUserByUsernameAndDomain(username, UserType.PATIENT);
         UsernamePasswordAuthenticationToken authenticationToken =
-                new UsernamePasswordAuthenticationToken(userDetails,password,userDetails.getAuthorities());
+                new CustomAuthToken(userDetails, password, UserType.PATIENT);
         authenticationManager.authenticate(authenticationToken);
 
-        if(authenticationToken.isAuthenticated()){
+        if (authenticationToken.isAuthenticated()) {
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             logger.debug(String.format("Successfully %s auto logged in ", username));
         }

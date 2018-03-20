@@ -18,8 +18,9 @@ public class Appointment {
     @JoinColumn(name = "id_doctor", nullable = false)
     private Doctor doctor;
 
-    @Column(name = "id_patient")
-    private Long patientId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_patient", nullable = false)
+    private Patient patient;
 
     @Column(name = "date")
     private Date date;

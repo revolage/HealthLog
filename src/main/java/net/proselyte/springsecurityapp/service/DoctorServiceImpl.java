@@ -22,4 +22,9 @@ public class DoctorServiceImpl implements DoctorService{
     public List<Doctor> findAllDoctors() {
         return doctorDao.findAll();
     }
+
+    @Override
+    public Doctor findDoctorByName(String name) {
+        return doctorDao.findByName(name);
+    }
 }

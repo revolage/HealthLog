@@ -6,12 +6,12 @@ import java.util.List;
 
 public interface AppointmentService {
 
-    void testAppointment();
-
     Appointment findAppointmentById(Long id);
 
     List<Appointment> appointmentsOfUserPlaned(Long id);
 
     List<Appointment> appointmentsOfUserEnded(Long id);
+
+    List<Appointment> appointmentsOfDoctorPlaned(Long doctor_id);
 
 }

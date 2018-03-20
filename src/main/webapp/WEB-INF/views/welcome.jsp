@@ -76,7 +76,32 @@
                                             </c:forEach>
                                         </div>
                             </section>
-                            <div class="reserveAppointment btn btn-default">Запис на прийом</div>
+                            <div class="modal fade" id="reserveAppointemnt" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">${patient.name} ${patient.surname}</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="patientPhoto"><img src="${patient.photo}"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                            </div><!-- /.modal -->
+                            <span class="planedAppointment-date">${appointment.date}</span>
+                            <div class="patientPhoto"><img src="${appointment.patient.photo}"></div>
+                            <span class="patientName">${appointment.patient.name} ${appointment.patient.surname}</span>
+                            <button type="button" class="reserveAppointment btn btn-default" data-toggle="modal" data-target="#reserveAppointemnt">
+                                Запис на прийом
+                            </button>
+                            <!--<span class="appointment btn btn-default">Прийом</span>-->
+                        </div>
+                            <!--<div class="reserveAppointment btn btn-default">Запис на прийом</div>-->
 
                         </div>
                     </div>
@@ -100,9 +125,7 @@
                 </section>
             </div>
         </div>
-
         <span></span>
-        <!--<span>Your email: ${patient.userEmail}</span>-->
 
     </c:if>
 </div>
