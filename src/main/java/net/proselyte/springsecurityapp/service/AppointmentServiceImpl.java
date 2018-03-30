@@ -33,5 +33,21 @@ public class AppointmentServiceImpl implements AppointmentService {
         return appointmentDao.findAppointmentsByDoctorIdAndIsVisited(doctor_id, false);
     }
 
+    @Override
+    public List<Appointment> appointmentsOfDoctorPlanedSorted(Long doctor_id) {
+        return appointmentDao.findAppointmentsByDoctorIdAndIsVisitedOrderByDateAsc(doctor_id, false);
+    }
+
+    @Override
+    public void createAppointment(Appointment appointment) {
+
+        appointmentDao.save(appointment);
+    }
+
+    @Override
+    public Appointment updateAppointment(Appointment appointment) {
+       return appointmentDao.save(appointment);
+    }
+
 
 }

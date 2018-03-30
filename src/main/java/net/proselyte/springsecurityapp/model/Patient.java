@@ -1,6 +1,7 @@
 package net.proselyte.springsecurityapp.model;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
 
@@ -37,6 +38,7 @@ public class Patient {
 
     @Column(name = "birthday")
     private Date birthday;
+
 
     @Column(name = "phone")
     private String phone;
@@ -144,8 +146,13 @@ public class Patient {
         this.gender = gender;
     }
 
-    public Date getBirthday() {
-        return birthday;
+//    public Date getBirthday() {
+//        return birthday;
+//    }
+
+    public String getBirthday() {
+
+        return new SimpleDateFormat("dd.MM.yyyy").format(birthday);
     }
 
     public void setBirthday(Date birthday) {

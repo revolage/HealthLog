@@ -28,11 +28,19 @@ public class UserDetailsServiceImpl {
 
         if (UserType.PATIENT == userType) {
             Patient user = patientDao.findByUsername(username);
+            if(user == null) {
+                throw new UsernameNotFoundException("User was not found");
+            }
             return new User(user.getUsername(), user.getPassword(), roles);
+
         } else if (UserType.DOCTOR == userType) {
             Doctor doctor = doctorDao.findByName(username);
+            if(doctor == null) {
+                throw new UsernameNotFoundException("Doctor was not found");
+            }
             return new User(doctor.getName(), doctor.getPassword(), roles);
         }
         throw new UsernameNotFoundException("User was not found");
     }
+
 }

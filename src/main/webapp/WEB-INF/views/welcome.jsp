@@ -1,7 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<fmt:requestEncoding value="utf-8"/>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html>
@@ -17,7 +20,7 @@
 <body>
 <div class="container">
     <c:if test="${pageContext.request.userPrincipal.name != null}">
-        <form id="logoutForm" method="POST" action="${contextPath}/logout">
+        <form id="logoutForm" method="POST" accept-charset="utf-8" action="${contextPath}/logout">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
         </form>
         <h2><span>${pageContext.request.userPrincipal.name}</span> | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
@@ -85,10 +88,32 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="patientPhoto"><img src="${patient.photo}"></div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <!-- form -->
+                                            <form method="POST" action="/appointment" class="form-signin">
+
+                                                <div class="form-group ${status.error ? 'has-error' : ''}">
+                                                <input type="date" name="date" class="form-control" placeholder="Лікування"
+                                                autofocus="true"></input>
+                                                </div>
+
+                                                <select name="doctorId" id="">
+                                                    <c:forEach items="${doctorList}" var="doctor">
+                                                        <option value="${doctor.id}">${doctor.name} ${doctor.surname}</option>
+                                                    </c:forEach>
+                                                </select>
+                                                <%--<spring:bind path="doctor.name">--%>
+                                                <%--<div class="form-group ${status.error ? 'has-error' : ''}">--%>
+                                                <%--<form:input type="text" path="diagnosis" class="form-control" placeholder="Діагноз"></form:input>--%>
+
+                                                <%--</div>--%>
+                                                <%--</spring:bind>--%>
+                                                <div class="form-group ${status.error ? 'has-error' : ''}">
+                                                    <input type="text" name="symptoms" class="form-control" placeholder="Симптоми"/>
+                                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                                </div>
+                                                </>
+                                                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                                            </form>
                                         </div>
                                     </div><!-- /.modal-content -->
                                 </div><!-- /.modal-dialog -->

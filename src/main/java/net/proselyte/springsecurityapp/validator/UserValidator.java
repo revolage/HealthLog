@@ -8,6 +8,8 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import java.io.UnsupportedEncodingException;
+
 /**
  * Validator for {@link Patient} class,
  * inplements {@link Validator} interface.
@@ -27,20 +29,21 @@ public class UserValidator implements Validator{
     public void validate(Object o, Errors errors) {
         Patient patient = (Patient) o;
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"username","Required");
-        if(patient.getUsername().length() < 8 || patient.getUsername().length() > 32){
-            errors.rejectValue("username","Size.userForm.username");
+        if(patient.getUsername().length() < 6 || patient.getUsername().length() > 32){
+
+            errors.rejectValue("username", "Size.registrationForm.username");
         }
 
         if(patientService.findByUsername(patient.getUsername())!=null){
-            errors.rejectValue("username","Duplicate.userForm.username");
+            errors.rejectValue("username","Duplicate.registrationForm.username");
         }
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Required");
         if(patient.getPassword().length() < 8 || patient.getPassword().length() >32){
-            errors.rejectValue("password","Size.userForm.password");
+            errors.rejectValue("password","Size.registrationForm.password");
         }
         if(!patient.getConfirmPassword().equals(patient.getPassword())){
-            errors.rejectValue("confirmPassword","Diffrent.userForm.password");
+            errors.rejectValue("confirmPassword","Different.registrationForm.password");
         }
 
     }

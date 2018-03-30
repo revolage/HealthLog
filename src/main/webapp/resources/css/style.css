@@ -9,7 +9,7 @@ p, span {
 
 
 .form-signin {
-    max-width: 330px;
+    max-width: 400px;
     padding: 15px;
     margin: 0 auto;
 }
@@ -232,3 +232,68 @@ p.symptoms{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6fd8a1', endColorstr='#12c7ca', GradientType=1 );
     color: #eee;
 }
+
+
+
+
+img.active-img{
+    display: none;
+}
+
+input[type=radio] {
+  position: absolute;
+  visibility: hidden;
+  display: none;
+}
+
+label {
+  color: #332f35;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+/*  padding: 5px 20px;*/ 
+    padding: 5px 47px;
+    margin-bottom: 0px;
+}
+
+input[type=radio]:checked + label{
+  color: #fff;
+  background: #332f35;
+}
+input[type=radio]:checked + label img.active-img{
+  display: inline;
+    
+}
+input[type=radio]:checked + label img.not-active-img{
+  display: none;
+    
+}
+input[type=radio]:checked + label[for=patient] {
+  background: #70d8a3;
+    
+}
+input[type=radio]:checked + label[for=patient]:parent {
+  border-color: #70d8a3;
+    
+}
+input[type=radio]:checked + label[for=doctor] {
+  background: #12c5c9;    
+}
+input[type=radio]:checked + label[for=doctor]:parent {
+  border-color: #12c5c9;  
+}
+/*
+label + input[type=radio] + label {
+  border-left: solid 3px #332f35;
+}
+*/
+.radio-group {
+    border: solid 2px #70d8a3;
+    display: inline-block;
+/*    margin: 20px;*/
+    border-radius: 10px;
+    overflow: hidden;
+/*    margin-left: 50px;*/
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');

@@ -32,6 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutUrl("/logout");
+//                .and()
+//                .csrf().disable();
     }
 
     public UserLoginFilter authenticationFilter() throws Exception {

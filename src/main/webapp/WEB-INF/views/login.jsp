@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -12,25 +13,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Log in with your account</title>
-
+    <title>Авторизація</title>
     <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="${contextPath}/resources/css/style.css" rel="stylesheet">
-
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
 </head>
-
 <body>
-
 <div class="container">
+    <form>
 
+    </form>
     <form method="POST" action="${contextPath}/login" class="form-signin">
-        <h2 class="form-heading">Log in</h2>
-        <span>Patient<input type="radio" id="patient" name="userType" value="PATIENT" checked></span>
-        <span>Doctor<input type="radio" id="doctor" name="userType" value="DOCTOR"></span>
+        <h2 class="form-heading text-center">АВТОРИЗАЦІЯ</h2>
+        <div class="radio-group">
+            <input type="radio" id="patient" name="userType" value="PATIENT" checked><label for="patient"><img class="active-img" src="resources/img/patient-active.png"><img class="not-active-img" src="resources/img/patient.png"> Пацієнт</label>
+            <input type="radio" id="doctor" name="userType" value="DOCTOR"><label for="doctor"><img class="active-img" src="resources/img/doctor-active.png"><img class="not-active-img" src="resources/img/doctor.png"> Лікар</label>
+        </div>
+
         <div class="form-group ${error != null ? 'has-error' : ''}">
             <span>${message}</span>
             <input name="username" type="text" class="form-control" placeholder="Username"

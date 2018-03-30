@@ -14,4 +14,12 @@ public interface AppointmentService {
 
     List<Appointment> appointmentsOfDoctorPlaned(Long doctor_id);
 
+    List<Appointment> appointmentsOfDoctorPlanedSorted(Long doctor_id);
+
+    void createAppointment(Appointment appointment);
+
+    Appointment updateAppointment(Appointment appointment);
+
+
+
 }

@@ -44,19 +44,19 @@ public class UserController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
-        model.addAttribute("userForm", new Patient());
+        model.addAttribute("registrationForm", new Patient());
         return "registration";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String registration(@ModelAttribute("userForm") Patient patientForm, BindingResult bindingResult, Model model) {
+    public String registration(@ModelAttribute("registrationForm") Patient patientForm, BindingResult bindingResult, Model model) {
         userValidator.validate(patientForm, bindingResult);
         if (bindingResult.hasErrors()) {
             return "registration";
         }
         patientService.save(patientForm);
-        //todo: add userType from form
-        securityService.autoLogin(patientForm.getUsername(), patientForm.getConfirmPassword());
+        //todo : Add UserType for registration
+//        securityService.autoLogin(patientForm.getUsername(), patientForm.getConfirmPassword());
         return "redirect:/welcome";
     }
 
@@ -73,40 +73,28 @@ public class UserController {
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
-
         CustomAuthToken auth = (CustomAuthToken) SecurityContextHolder.getContext().getAuthentication();
         String loggedInUsername = auth.getName();
         UserType userType = auth.getUserType();
-
         if (UserType.PATIENT == userType) {
             Patient patient = patientService.findByUsername(loggedInUsername);
             model.addAttribute("patient", patient); //patient
-
             //Appointment appointment = appointmentService.findAppointmentById(patient.getId());
             //model.addAttribute("appointment", appointment);
-
             List<Doctor> doctorList = doctorService.findAllDoctors();
             model.addAttribute("doctorList", doctorList);
-
             List<Appointment> appointmentListPlaned = appointmentService.appointmentsOfUserPlaned(patient.getId());
             model.addAttribute("appointmentListPlaned", appointmentListPlaned);
-
             List<Appointment> appointmentListEnded = appointmentService.appointmentsOfUserEnded(patient.getId());
             model.addAttribute("appointmentListEnded", appointmentListEnded);
+            model.addAttribute("emptyAppointment", new Appointment());
         } else if (UserType.DOCTOR == userType) {
-
             Doctor doctor = doctorService.findDoctorByName(loggedInUsername);
             model.addAttribute("doctor", doctor);
-
-            List<Appointment> appointmentListPlaned = appointmentService.appointmentsOfDoctorPlaned(doctor.getId());
+            List<Appointment> appointmentListPlaned = appointmentService.appointmentsOfDoctorPlanedSorted(doctor.getId());
             model.addAttribute("appointmentListPlaned", appointmentListPlaned);
+            model.addAttribute("appointment", new Appointment());
         }
-
         return UserType.PATIENT == userType ? "welcome" : "doctorPage";
-    }
-
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String admin(Model model) {
-        return "admin";
     }
 }

@@ -1,10 +1,12 @@
 package net.proselyte.springsecurityapp.model;
 
+
 import lombok.Data;
+import org.hibernate.annotations.ColumnDefault;
+
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Set;
 
 @Entity
 @Table(name="appointment")
@@ -22,6 +24,7 @@ public class Appointment {
     @JoinColumn(name = "id_patient", nullable = false)
     private Patient patient;
 
+    //@DateTimeFormat(pattern = "dd/MM/yyyy")
     @Column(name = "date")
     private Date date;
 
@@ -42,9 +45,11 @@ public class Appointment {
     @Column(name = "notes")
     private String notes;
 
+    @ColumnDefault("false")
     @Column(name = "isVisited")
     private Boolean isVisited;
 
+    @ColumnDefault("false")
     @Column(name = "isCanceled")
     private Boolean isCanceled;
 
