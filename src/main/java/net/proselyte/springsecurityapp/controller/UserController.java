@@ -77,10 +77,8 @@ public class UserController {
         String loggedInUsername = auth.getName();
         UserType userType = auth.getUserType();
         if (UserType.PATIENT == userType) {
-            Patient patient = patientService.findByUsername(loggedInUsername);
-            model.addAttribute("patient", patient); //patient
-            //Appointment appointment = appointmentService.findAppointmentById(patient.getId());
-            //model.addAttribute("appointment", appointment);
+            Patient patient = patientService.findByEmail(loggedInUsername);
+            model.addAttribute("patient", patient);
             List<Doctor> doctorList = doctorService.findAllDoctors();
             model.addAttribute("doctorList", doctorList);
             List<Appointment> appointmentListPlaned = appointmentService.appointmentsOfUserPlaned(patient.getId());
@@ -89,7 +87,7 @@ public class UserController {
             model.addAttribute("appointmentListEnded", appointmentListEnded);
             model.addAttribute("emptyAppointment", new Appointment());
         } else if (UserType.DOCTOR == userType) {
-            Doctor doctor = doctorService.findDoctorByName(loggedInUsername);
+            Doctor doctor = doctorService.findDoctorByEmail(loggedInUsername);
             model.addAttribute("doctor", doctor);
             List<Appointment> appointmentListPlaned = appointmentService.appointmentsOfDoctorPlanedSorted(doctor.getId());
             model.addAttribute("appointmentListPlaned", appointmentListPlaned);

@@ -27,4 +27,9 @@ public class DoctorServiceImpl implements DoctorService{
     public Doctor findDoctorByName(String name) {
         return doctorDao.findByName(name);
     }
+
+    @Override
+    public Doctor findDoctorByEmail(String email) {
+        return doctorDao.findByEmail(email);
+    }
 }

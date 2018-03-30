@@ -9,4 +9,6 @@ public interface PatientService {
     void save(Patient patient);
 
     Patient findByUsername(String username);
+    Patient findByEmail(String email);
+
 }

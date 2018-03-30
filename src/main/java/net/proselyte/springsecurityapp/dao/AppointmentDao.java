@@ -14,5 +14,6 @@ public interface AppointmentDao extends CrudRepository<Appointment, Long> {
     List<Appointment> findAppointmentsByPatientIdAndIsVisited(Long id, Boolean visited);
     List<Appointment> findAppointmentsByDoctorIdAndIsVisited (Long doctor_id, Boolean isVisited);
     List<Appointment> findAppointmentsByDoctorIdAndIsVisitedOrderByDateAsc (Long doctor_id, Boolean isVisited);
+    //List<Appointment> findAppointmentsByDoctorIdAndIsVisitedAndDate (Long doctor_id, Boolean isVisited);
 
 }

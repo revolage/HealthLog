@@ -10,4 +10,5 @@ public interface DoctorService {
     List<Doctor> findAllDoctors();
 
     Doctor findDoctorByName(String name);
+    Doctor findDoctorByEmail(String email);
 }

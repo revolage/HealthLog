@@ -38,4 +38,9 @@ public class PatientServiceImpl implements PatientService {
     public Patient findByUsername(String username) {
         return patientDao.findByUsername(username);
     }
+
+    @Override
+    public Patient findByEmail(String email) {
+        return patientDao.findByEmail(email);
+    }
 }

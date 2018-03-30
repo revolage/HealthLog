@@ -38,7 +38,7 @@ public class SecurityServiceImpl implements SecurityService {
 
     @Override
     public void autoLogin(String username, String password) {
-        UserDetails userDetails = userDetailsService.loadUserByUsernameAndDomain(username, UserType.PATIENT);
+        UserDetails userDetails = userDetailsService.loadUserByEmailAndDomain(username, UserType.PATIENT);
         UsernamePasswordAuthenticationToken authenticationToken =
                 new CustomAuthToken(userDetails, password, UserType.PATIENT);
         authenticationManager.authenticate(authenticationToken);

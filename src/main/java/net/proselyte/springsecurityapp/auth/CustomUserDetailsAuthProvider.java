@@ -40,7 +40,7 @@ public class CustomUserDetailsAuthProvider extends AbstractUserDetailsAuthentica
 
     @Override
     protected UserDetails retrieveUser(String username, UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
-        return userDetailsService.loadUserByUsernameAndDomain(username, ((CustomAuthToken) authentication).getUserType());
+        return userDetailsService.loadUserByEmailAndDomain(username, ((CustomAuthToken) authentication).getUserType());
     }
 
     @Override
