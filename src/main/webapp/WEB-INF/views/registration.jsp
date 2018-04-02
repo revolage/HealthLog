@@ -50,11 +50,27 @@
             </div>
         </spring:bind>
 
-        <spring:bind path="confirmPassword">
+        <spring:bind path="name">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="password" path="confirmPassword" class="form-control"
-                            placeholder="Confirm your password"></form:input>
-                <form:errors path="confirmPassword"></form:errors>
+                <form:input type="text" path="name" class="form-control"
+                            placeholder="Ім'я"></form:input>
+                <form:errors path="name"></form:errors>
+            </div>
+        </spring:bind>
+
+        <spring:bind path="surname">
+            <div class="form-group ${status.error ? 'has-error' : ''}">
+                <form:input type="text" path="surname" class="form-control"
+                            placeholder="Прізвище"></form:input>
+                <form:errors path="surname"></form:errors>
+            </div>
+        </spring:bind>
+
+        <spring:bind path="fathername">
+            <div class="form-group ${status.error ? 'has-error' : ''}">
+                <form:input type="text" path="fathername" class="form-control"
+                            placeholder="По-батькові"></form:input>
+                <form:errors path="fathername"></form:errors>
             </div>
         </spring:bind>
 
