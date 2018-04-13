@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 02 2018 г., 20:46
+-- Время создания: Апр 13 2018 г., 23:43
 -- Версия сервера: 10.1.21-MariaDB
 -- Версия PHP: 5.6.30
 
@@ -47,7 +47,7 @@ INSERT INTO `appointment` (`id`, `id_patient`, `id_doctor`, `date`, `symptoms`, 
 (1, 2, 1, '2018-03-16', 'Сильні головні болі', 'Підвищений артеріальний тиск', 'Діуретик \"Верошпирон\" 1т х 3рази на день [Курс 7 днів]', 'Можливий прийом аналогічних препаратів тієї ж лікарскої групи', 1, 0),
 (3, 2, 1, '2018-03-17', 'Загальна втома. Біль в районі нирок', 'ограв\'', 'іваіва', 'іваіва', 1, 0),
 (7, 2, 2, '2018-03-17', 'Гострий біль в животі', 'Даагноз не придумався', '4 чашки чаю 3 рази надень', '', 0, 0),
-(26, 2, 1, '2018-03-23', 'Загальна слабкість', 'Нестача вітамінів', 'Комплекс вітамінів A, B, C', '3таблети х 4рази на день [21 день]', 0, 0),
+(26, 2, 1, '2018-03-23', 'Загальна слабкість', 'орва', 'брл', 'р', 1, 0),
 (27, 2, 1, '2018-03-31', 'Біль в спині', 'OJcm', 'fsfddsf', 'sdfsdf', 0, 0),
 (28, 2, 1, '2018-03-30', 'Запаморочення', 'Нестача сну', 'Сон по 8 годин', '', 0, 0);
 
@@ -140,49 +140,14 @@ INSERT INTO `patients` (`id`, `username`, `password`, `email`, `name`, `surname`
 (3, 'testuser', '$2a$11$iMejy40lh.CBHeH84D.LbuCgC4QW.9CRejoeYSSPmPTy/xtZyS.8W', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (4, 'deleteUser', '$2a$11$xh04cYFaZFaSIxMBnSl68.paSq74WDV8B3qVfigtoE4jLN7SqSLAi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (5, 'starikov', '$2a$11$iiz.W1qeVopjNlOYgfpqIeZ17XO85FQnAYzccX1XXmSHKyYQ8BOvO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 'user1111', '$2a$11$xo89w3t7A91OUmLulGIy2u5hsUgyvhH6Ye499QWr0cF.BRfuIDKGS', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `roles`
---
-
-CREATE TABLE `roles` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `roles`
---
-
-INSERT INTO `roles` (`id`, `name`) VALUES
-(1, 'ROLE_USER'),
-(2, 'ROLE_ADMIN');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `user_roles`
---
-
-CREATE TABLE `user_roles` (
-  `user_id` int(11) NOT NULL,
-  `role_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `user_roles`
---
-
-INSERT INTO `user_roles` (`user_id`, `role_id`) VALUES
-(1, 2),
-(2, 1),
-(3, 1),
-(4, 2),
-(5, 1),
-(6, 1);
+(6, 'user1111', '$2a$11$xo89w3t7A91OUmLulGIy2u5hsUgyvhH6Ye499QWr0cF.BRfuIDKGS', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 'newUser', '$2a$10$wC4VCTcZyx597ARdDclpiuGLiCJeLfMwWytjZMbrD7tTfcqxad6sy', NULL, 'Ð§ÐµÐ»Ð¾Ð²ÐµÐº', 'Ð§ÐµÐ»Ð¾Ð²ÐµÐº', 'Ð§ÐµÐ»Ð¾Ð²ÐµÐº', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 'newNewUser', '$2a$10$szUem.W/AkSM/0nViSalMORo0aKFmUTdQD1s.VA8BoDTVZYDK8/o6', NULL, '', '', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 'vlad.kach', '$2a$10$JcKEm5Od9sRZfMTkBdVFuecdnXfENgMWEcfPWTRGtHOXpd.xoW21a', NULL, 'ÐÐ»Ð°Ð´', 'ÐÐ°ÑÑÑ', 'Ð¡ÐµÑÐ³ÑÐ¹Ð¾Ð²Ð¸Ñ', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 'username', '$2a$10$2bFsWkNdmLW/hGU4Zh7Dmuh.zpBX9vNeTwmJ5yZ8czy29CwIxq6q.', 'f@sdf.c', 'dsf', 'dsf', 'sdfg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 'username0202', '$2a$10$CH2hbup4rNxO6tUbOSUw3esh5j5Dt21vglRyR1rRYQwWSEZCfaKJ6', 'ref@jj.c', 'name', 'name', 'name', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(16, 'username03', '$2a$10$ikr40inYayCxhsGY3O8PVuFO/JW/yOSgBbTPyl8dSKp7e2fuh3wv6', 'ref@fsdf.c', 'sdfsdf', 'dsfdsf', 'sdfsdfsdf', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(17, 'qwerty', '$2a$10$.yf3sqU9r.BN4S8G8jPfG.yJ0PhFG5B5HwWQRelTXfEOcglBOAzvO', 'qwerty@g.com', 'The', 'Waking', 'Deamon', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Индексы сохранённых таблиц
@@ -216,19 +181,6 @@ ALTER TABLE `patients`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `roles`
---
-ALTER TABLE `roles`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `user_roles`
---
-ALTER TABLE `user_roles`
-  ADD UNIQUE KEY `user_id` (`user_id`,`role_id`),
-  ADD KEY `role_id` (`role_id`);
-
---
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
@@ -251,12 +203,7 @@ ALTER TABLE `doctors`
 -- AUTO_INCREMENT для таблицы `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT для таблицы `roles`
---
-ALTER TABLE `roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
@@ -273,13 +220,6 @@ ALTER TABLE `appointment`
 --
 ALTER TABLE `doctors`
   ADD CONSTRAINT `doctors_ibfk_1` FOREIGN KEY (`id_department`) REFERENCES `department` (`id`);
-
---
--- Ограничения внешнего ключа таблицы `user_roles`
---
-ALTER TABLE `user_roles`
-  ADD CONSTRAINT `user_roles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `patients` (`id`),
-  ADD CONSTRAINT `user_roles_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
 
-    <!--<beans:bean class="net.proselyte.springsecurityapp.auth.SecurityConfig"/>-->
+    <!--<beans:bean class="com.kachurringsecurityapp.auth.SecurityConfig"/>-->
     <!--<http auto-config="true">-->
         <!--<custom-filter before="FIRST" ref="customFilter"/>-->
         <!--<intercept-url pattern="/" access="isAuthenticated()"/>-->
@@ -20,7 +20,7 @@
         <!--<logout logout-success-url="/login?logout"/>-->
     <!--</http>-->
 
-    <!--<beans:bean id="customFilter" class="net.proselyte.springsecurityapp.auth.filter.UserLoginFilter"/>-->
+    <!--<beans:bean id="customFilter" class="com.kachurringsecurityapp.auth.filter.UserLoginFilter"/>-->
 
     <!--<authentication-manager alias="authenticationManager">-->
         <!--<authentication-provider ref="customAuthProvider"/>-->
@@ -28,9 +28,9 @@
 
 
     <beans:bean id="userDetailsServiceImpl"
-                class="net.proselyte.springsecurityapp.auth.UserDetailsServiceImpl"/>
+                class="com.kachur.auth.UserDetailsServiceImpl"/>
 
-    <!--<beans:bean id="customAuthProvider" class="net.proselyte.springsecurityapp.auth.CustomUserDetailsAuthProvider">-->
+    <!--<beans:bean id="customAuthProvider" class="com.kachurringsecurityapp.auth.CustomUserDetailsAuthProvider">-->
         <!--<beans:constructor-arg ref="userDetailsServiceImpl"/>-->
         <!--<beans:constructor-arg ref="encoder"/>-->
     <!--</beans:bean>-->
