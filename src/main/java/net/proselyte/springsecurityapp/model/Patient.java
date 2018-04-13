@@ -29,7 +29,7 @@ public class Patient {
 
     @Column(name = "surname")
     private String surname;
-
+//dfgfdgfdgdfg
     @Column(name = "fathername")
     private String fathername;
 
