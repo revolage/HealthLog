@@ -16,7 +16,7 @@ import java.io.UnsupportedEncodingException;
  */
 
 @Component
-public class UserValidator implements Validator{
+public class UserValidator implements Validator {
     @Autowired
     private PatientService patientService;
 
@@ -28,22 +28,22 @@ public class UserValidator implements Validator{
     @Override
     public void validate(Object o, Errors errors) {
         Patient patient = (Patient) o;
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"username","Required");
-        if(patient.getUsername().length() < 6 || patient.getUsername().length() > 32){
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "Required");
+        if (patient.getEmail().length() < 6 || patient.getEmail().length() > 32) {
 
-            errors.rejectValue("username", "Size.registrationForm.username");
+            errors.rejectValue("email", "Size.registrationForm.username");
         }
 
-        if(patientService.findByUsername(patient.getUsername())!=null){
-            errors.rejectValue("username","Duplicate.registrationForm.username");
+        if (patientService.findByEmail(patient.getEmail()) != null) {
+            errors.rejectValue("email", "Duplicate.registrationForm.username");
         }
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Required");
-        if(patient.getPassword().length() < 8 || patient.getPassword().length() >32){
-            errors.rejectValue("password","Size.registrationForm.password");
+        if (patient.getPassword().length() < 8 || patient.getPassword().length() > 32) {
+            errors.rejectValue("password", "Size.registrationForm.password");
         }
-        if(!patient.getConfirmPassword().equals(patient.getPassword())){
-            errors.rejectValue("confirmPassword","Different.registrationForm.password");
+        if (!patient.getConfirmPassword().equals(patient.getPassword())) {
+            errors.rejectValue("confirmPassword", "Different.registrationForm.password");
         }
 
     }

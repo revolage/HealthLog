@@ -7,7 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19c4ba1b-a636-4c58-82bd-0722cc729478" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/dao/RoleDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/model/Role.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/net/proselyte/springsecurityapp/dao/RoleDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/net/proselyte/springsecurityapp/model/Role.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/net/proselyte/springsecurityapp/validator/UserValidator.class" afterPath="$PROJECT_DIR$/target/classes/net/proselyte/springsecurityapp/validator/UserValidator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/auth/UserDetailsServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/auth/UserDetailsServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/model/Patient.java" afterPath="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/model/Patient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/service/PatientServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/service/PatientServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/validator/UserValidator.java" afterPath="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/validator/UserValidator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registration.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registration.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,100 +43,71 @@
       <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="52" column="31" lean-forward="false" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
+            <state relative-caret-position="377">
+              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserValidator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/validator/UserValidator.java">
+      <file leaf-file-name="InvocableHandlerMethod.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.0.RELEASE/spring-web-4.2.0.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+            <state relative-caret-position="213">
+              <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registration.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PatientService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/service/PatientService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registration.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registration.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="75" column="4" lean-forward="false" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="4" />
+            <state relative-caret-position="442">
+              <caret line="65" column="44" lean-forward="false" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Patient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/model/Patient.java">
+      <file leaf-file-name="PatientServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/service/PatientServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="31" column="14" lean-forward="false" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+            <state relative-caret-position="360">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1494#1495#0" expanded="true" />
-                <element signature="e#1519#1520#0" expanded="true" />
-                <element signature="e#1553#1554#0" expanded="true" />
-                <element signature="e#1581#1582#0" expanded="true" />
-                <element signature="e#1616#1617#0" expanded="true" />
-                <element signature="e#1647#1648#0" expanded="true" />
-                <element signature="e#1695#1696#0" expanded="true" />
-                <element signature="e#1735#1736#0" expanded="true" />
-                <element signature="e#1770#1771#0" expanded="true" />
-                <element signature="e#1801#1802#0" expanded="true" />
-                <element signature="e#1849#1850#0" expanded="true" />
-                <element signature="e#1889#1890#0" expanded="true" />
-                <element signature="e#1931#1932#0" expanded="true" />
-                <element signature="e#1969#1970#0" expanded="true" />
-                <element signature="e#2031#2032#0" expanded="true" />
-                <element signature="e#2085#2086#0" expanded="true" />
-                <element signature="e#2120#2121#0" expanded="true" />
-                <element signature="e#2148#2149#0" expanded="true" />
-                <element signature="e#2193#2194#0" expanded="true" />
-                <element signature="e#2227#2228#0" expanded="true" />
-                <marker date="1523645263434" expanded="false" signature="2286:2292" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="2332:2343" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="2362:2368" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="2397:2408" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="2420:2426" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="2464:2475" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="2492:2498" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="2530:2541" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="2556:2562" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="2606:2617" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="2640:2646" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="2681:2692" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="2710:2716" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="2766:2777" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="2806:2812" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="2843:2854" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="2868:2874" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="2917:2928" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="2949:2955" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="3179:3190" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="3215:3221" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="3251:3262" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="3275:3281" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="3321:3332" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="3351:3357" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="3397:3408" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="3431:3437" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="3497:3508" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="3547:3553" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="3587:3598" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="3615:3621" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="3669:3680" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="3707:3713" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="3747:3758" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="3775:3781" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="3829:3840" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="3867:3873" ph=" }" />
-                <marker date="1523645263434" expanded="false" signature="3910:3921" ph=" { " />
-                <marker date="1523645263434" expanded="false" signature="3941:3947" ph=" }" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomUserDetailsAuthProvider.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/auth/CustomUserDetailsAuthProvider.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomAuthToken.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/auth/CustomAuthToken.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -143,8 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>patientForm</find>
-      <find>ant</find>
       <find>select</find>
       <find>symp</find>
       <find>csrf</find>
@@ -173,6 +152,8 @@
       <find>username</find>
       <find>fat</find>
       <find>email</find>
+      <find>userna</find>
+      <find>getRo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -199,12 +180,10 @@
         <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/service/AppointmentService.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/service/AppointmentServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/validator/UserValidator.java" />
         <option value="$PROJECT_DIR$/src/main/resources/validation.properties" />
         <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/auth/CustomUserDetailsAuthProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/service/SecurityServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/dao/PatientDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/service/PatientServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/service/PatientService.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/service/DoctorService.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/service/DoctorServiceImpl.java" />
@@ -212,8 +191,12 @@
         <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/dao/DoctorDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/auth/UserDetailsServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/dao/AppointmentDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/model/Patient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/validator/UserValidator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/dao/RoleDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/model/Role.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registration.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/model/Patient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/service/PatientServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -416,15 +399,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringSecurityApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringSecurityApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -702,7 +676,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109400000" />
+    <option name="totallyTimeSpent" value="113220000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -726,7 +700,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280899" sideWeight="0.49755502" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32921347" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921347" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16179775" sideWeight="0.49511003" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22616138" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -817,14 +791,8 @@
           <properties />
           <option name="timeStamp" value="17" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/controller/UserController.java</url>
-          <line>90</line>
-          <properties />
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="26" />
+      <option name="time" value="29" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
@@ -833,35 +801,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/model/Appointment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="32" column="35" lean-forward="false" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/model/Department.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/service/AppointmentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="16" column="69" lean-forward="false" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/web-forms.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11900">
-          <caret line="595" column="16" lean-forward="false" selection-start-line="595" selection-start-column="16" selection-end-line="595" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/controller/AppointmentController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -900,31 +839,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/validator/UserValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/dao/PatientDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/service/PatientServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
-          <caret line="43" column="43" lean-forward="false" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
-          <folding>
-            <element signature="e#1145#1146#0" expanded="false" />
-            <element signature="e#1203#1204#0" expanded="false" />
-            <element signature="e#1265#1266#0" expanded="false" />
-            <element signature="e#1317#1318#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1055,24 +973,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.0.RELEASE/spring-web-4.2.0.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.2.RELEASE/spring-security-core-4.0.2.RELEASE.jar!/org/springframework/security/core/userdetails/UserDetails.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/service/PatientService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1101,20 +1005,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/auth/CustomAuthToken.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/auth/CustomUserDetailsAuthProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1183,90 +1073,114 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
           <caret line="29" column="43" lean-forward="false" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring_security_app.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/appconfig-data.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/validator/UserValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="36" column="32" lean-forward="false" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/service/PatientService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.0.RELEASE/spring-web-4.2.0.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="52" column="31" lean-forward="false" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
+        <state relative-caret-position="377">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/model/Patient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="31" column="14" lean-forward="false" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+        <state relative-caret-position="1000">
+          <caret line="69" column="4" lean-forward="false" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1494#1495#0" expanded="true" />
-            <element signature="e#1519#1520#0" expanded="true" />
-            <element signature="e#1553#1554#0" expanded="true" />
-            <element signature="e#1581#1582#0" expanded="true" />
-            <element signature="e#1616#1617#0" expanded="true" />
-            <element signature="e#1647#1648#0" expanded="true" />
-            <element signature="e#1695#1696#0" expanded="true" />
-            <element signature="e#1735#1736#0" expanded="true" />
-            <element signature="e#1770#1771#0" expanded="true" />
-            <element signature="e#1801#1802#0" expanded="true" />
-            <element signature="e#1849#1850#0" expanded="true" />
-            <element signature="e#1889#1890#0" expanded="true" />
-            <element signature="e#1931#1932#0" expanded="true" />
-            <element signature="e#1969#1970#0" expanded="true" />
-            <element signature="e#2031#2032#0" expanded="true" />
-            <element signature="e#2085#2086#0" expanded="true" />
-            <element signature="e#2120#2121#0" expanded="true" />
-            <element signature="e#2148#2149#0" expanded="true" />
-            <element signature="e#2193#2194#0" expanded="true" />
-            <element signature="e#2227#2228#0" expanded="true" />
-            <marker date="1523645263434" expanded="false" signature="2286:2292" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="2332:2343" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="2362:2368" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="2397:2408" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="2420:2426" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="2464:2475" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="2492:2498" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="2530:2541" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="2556:2562" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="2606:2617" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="2640:2646" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="2681:2692" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="2710:2716" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="2766:2777" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="2806:2812" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="2843:2854" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="2868:2874" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="2917:2928" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="2949:2955" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="3179:3190" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="3215:3221" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="3251:3262" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="3275:3281" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="3321:3332" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="3351:3357" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="3397:3408" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="3431:3437" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="3497:3508" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="3547:3553" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="3587:3598" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="3615:3621" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="3669:3680" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="3707:3713" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="3747:3758" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="3775:3781" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="3829:3840" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="3867:3873" ph=" }" />
-            <marker date="1523645263434" expanded="false" signature="3910:3921" ph=" { " />
-            <marker date="1523645263434" expanded="false" signature="3941:3947" ph=" }" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registration.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="75" column="4" lean-forward="false" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="4" />
+        <state relative-caret-position="442">
+          <caret line="65" column="44" lean-forward="false" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/dao/RoleDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/model/Role.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/service/PatientServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/auth/CustomUserDetailsAuthProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/proselyte/springsecurityapp/auth/CustomAuthToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>

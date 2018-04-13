@@ -15,7 +15,15 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name="username")
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Column(name = "username")
     private String username;
 
     @Column(name = "password")
@@ -29,7 +37,7 @@ public class Patient {
 
     @Column(name = "surname")
     private String surname;
-//dfgfdgfdgdfg
+
     @Column(name = "fathername")
     private String fathername;
 
@@ -38,7 +46,6 @@ public class Patient {
 
     @Column(name = "birthday")
     private Date birthday;
-
 
     @Column(name = "phone")
     private String phone;
@@ -61,25 +68,12 @@ public class Patient {
     @Transient
     private String confirmPassword;
 
-    @ManyToMany
-    @JoinTable(name = "user_roles",joinColumns = @JoinColumn(name="user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
-
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getPassword() {
@@ -98,15 +92,7 @@ public class Patient {
         this.confirmPassword = confirmPassword;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
-
-    public String getUserEmail() {
+    public String getEmail() {
         return email;
     }
 

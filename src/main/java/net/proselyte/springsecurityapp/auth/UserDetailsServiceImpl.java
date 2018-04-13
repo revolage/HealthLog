@@ -31,7 +31,7 @@ public class UserDetailsServiceImpl {
             if(user == null) {
                 throw new UsernameNotFoundException("User was not found");
             }
-            return new User(user.getUserEmail(), user.getPassword(), roles);
+            return new User(user.getEmail(), user.getPassword(), roles);
 
         } else if (UserType.DOCTOR == userType) {
             Doctor doctor = doctorDao.findByEmail(email);
