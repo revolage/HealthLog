@@ -7,11 +7,9 @@ import net.proselyte.springsecurityapp.model.Doctor;
 import net.proselyte.springsecurityapp.model.Patient;
 import net.proselyte.springsecurityapp.service.AppointmentService;
 import net.proselyte.springsecurityapp.service.DoctorService;
-import net.proselyte.springsecurityapp.service.SecurityService;
 import net.proselyte.springsecurityapp.service.PatientService;
 import net.proselyte.springsecurityapp.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,9 +32,6 @@ public class UserController {
     private AppointmentService appointmentService;
 
     @Autowired
-    private SecurityService securityService;
-
-    @Autowired
     private UserValidator userValidator;
 
     @Autowired
@@ -55,8 +50,6 @@ public class UserController {
             return "registration";
         }
         patientService.save(patientForm);
-        //todo : Add UserType for registration
-        //securityService.autoLogin(patientForm.getEmail(), patientForm.getConfirmPassword());
         return "redirect:/login?registered";
     }
 
