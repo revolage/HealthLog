@@ -7,5 +7,5 @@ public interface SecurityService {
     String findLoggedInUsername();
 
     //todo: add userType from form
-    void autoLogin(String username, String password);
+    void autoLogin(String email, String password);
 }

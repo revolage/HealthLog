@@ -37,7 +37,9 @@
                             <div class="col-md-8">
                                 <div class="text-block">
                                     <p class="patient-fullname">${patient.surname} ${patient.name} ${patient.fathername}</p>
-                                    <p>Дата народження: <span>${patient.birthday}</span></p>
+                                    <c:if test="${patient.birthday != null}">
+                                        <p>Дата народження: <span>${patient.birthday}</span></p>
+                                    </c:if>
                                     <p>Група крові: <span>${patient.bloodType}</span> </p>
                                     <p>Алергічні реакії: <span>${patient.allergies.length() > 0 ? patient.allergies : "Немає"}</span></p>
                                     <p>

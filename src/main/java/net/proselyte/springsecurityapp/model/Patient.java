@@ -3,6 +3,7 @@ package net.proselyte.springsecurityapp.model;
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -138,6 +139,9 @@ public class Patient {
 
     public String getBirthday() {
 
+        if(Objects.isNull(birthday)) {
+            return null;
+        }
         return new SimpleDateFormat("dd.MM.yyyy").format(birthday);
     }
 

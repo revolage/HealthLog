@@ -56,17 +56,20 @@ public class UserController {
         }
         patientService.save(patientForm);
         //todo : Add UserType for registration
-//        securityService.autoLogin(patientForm.getUsername(), patientForm.getConfirmPassword());
-        return "redirect:/welcome";
+        //securityService.autoLogin(patientForm.getEmail(), patientForm.getConfirmPassword());
+        return "redirect:/login?registered";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Model model, String error, String logout) {
+    public String login(Model model, String error, String logout, String registered) {
         if (error != null) {
             model.addAttribute("error", "Username or password is incorrect");
         }
         if (logout != null) {
             model.addAttribute("message", "Logged out successfully");
+        }
+        if (registered != null) {
+            model.addAttribute("message", "Login with new account");
         }
         return "login";
     }
