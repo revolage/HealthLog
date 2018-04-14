@@ -19,12 +19,12 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     @Override
     public List<Appointment> appointmentsOfUserPlaned(Long id) {
-        return appointmentDao.findAppointmentsByPatientIdAndIsVisited(id,false);
+        return appointmentDao.findAppointmentsByPatientIdAndIsVisitedAndIsCanceled(id,false,false);
     }
 
     @Override
     public List<Appointment> appointmentsOfUserEnded(Long id) {
-        return appointmentDao.findAppointmentsByPatientIdAndIsVisited(id, true);
+        return appointmentDao.findAppointmentsByPatientIdAndIsVisitedAndIsCanceled(id, true,false);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     @Override
     public List<Appointment> appointmentsOfDoctorPlanedSorted(Long doctor_id) {
-        return appointmentDao.findAppointmentsByDoctorIdAndIsVisitedOrderByDateAsc(doctor_id, false);
+        return appointmentDao.findAppointmentsByDoctorIdAndIsVisitedAndIsCanceledOrderByDateDesc(doctor_id, false, false);
     }
 
     @Override

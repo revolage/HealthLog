@@ -34,7 +34,7 @@ public class AppointmentController {
     }
 
     @RequestMapping(value = "/appointment", method = RequestMethod.POST)
-    public String registration(HttpServletRequest request) throws ParseException, UnsupportedEncodingException {
+    public String createAppointment(HttpServletRequest request) throws ParseException, UnsupportedEncodingException {
 
         CustomAuthToken auth = (CustomAuthToken) SecurityContextHolder.getContext().getAuthentication();
         String loggedInUsername = auth.getName();
@@ -44,7 +44,7 @@ public class AppointmentController {
         Date date = formatter.parse(request.getParameter("date"));
         appointment.setDate(date);
 
-        appointment.setPatient(patientService.findByUsername(loggedInUsername));
+        appointment.setPatient(patientService.findByEmail(loggedInUsername));
 
         appointment.setSymptoms(decodeParameter(request.getParameter("symptoms")));
 
@@ -85,5 +85,14 @@ public class AppointmentController {
         return "redirect:/welcome";
     }
 
+    @RequestMapping(value = "/appointment/cancel", method = RequestMethod.POST)
+    public String cancelAppointment(HttpServletRequest request) throws UnsupportedEncodingException {
+        int appointmentId = Integer.parseInt(decodeParameter(request.getParameter("appointmentId")));
+        Appointment appointment = appointmentService.findAppointmentById(new Long(appointmentId));
+        appointment.setIsCanceled(true);
+        appointment.setIsVisited(false);
+        Appointment updatedAppointment = appointmentService.updateAppointment(appointment);
+        return "redirect:/welcome";
+    }
 
 }

@@ -10,9 +10,7 @@ import java.util.List;
 public interface AppointmentDao extends CrudRepository<Appointment, Long> {
     List<Appointment> findAll();
     Appointment findAppointmentById(Long id);
-    List<Appointment> findAppointmentsByPatientIdAndIsVisited(Long id, Boolean visited);
+    List<Appointment> findAppointmentsByPatientIdAndIsVisitedAndIsCanceled(Long id, Boolean visited, Boolean cancled);
     List<Appointment> findAppointmentsByDoctorIdAndIsVisited (Long doctor_id, Boolean isVisited);
-    List<Appointment> findAppointmentsByDoctorIdAndIsVisitedOrderByDateAsc (Long doctor_id, Boolean isVisited);
-    //List<Appointment> findAppointmentsByDoctorIdAndIsVisitedAndDate (Long doctor_id, Boolean isVisited);
-
+    List<Appointment> findAppointmentsByDoctorIdAndIsVisitedAndIsCanceledOrderByDateDesc (Long doctor_id, Boolean isVisited, Boolean isCanceled);
 }

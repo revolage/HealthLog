@@ -30,7 +30,8 @@
                             <div class="patient">
                                 <span class="planedAppointment-date">${appointment.date}</span>
                                 <div class="patientPhoto"><img src="${appointment.patient.photo}"></div>
-                                <span class="patientName">${appointment.patient.name} ${appointment.patient.surname}</span>
+                                <a href="/patienthistory/${appointment.patient.id}"><span class="patientName">${appointment.patient.name} ${appointment.patient.surname}</span></a>
+
                                 <p class="symptoms">Симптоми: ${appointment.symptoms}</p>
                                 <button type="button" class="appointment btn btn-primary btn-lg" data-toggle="modal" data-target="#appointment_id${appointment.id}">
                                     Прийом

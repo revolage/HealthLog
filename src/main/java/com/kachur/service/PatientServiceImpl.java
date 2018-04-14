@@ -24,6 +24,11 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
+    public Patient findById(Long id) {
+        return patientDao.findById(id);
+    }
+
+    @Override
     public Patient findByUsername(String username) {
         return patientDao.findByUsername(username);
     }

@@ -12,7 +12,7 @@
 
     <import resource="appconfig-security.xml"/>
 
-    <context:component-scan base-package="com.kachur.springsecurityapp.*"/>
+    <context:component-scan base-package="com.kachur.*"/>
 
     <context:property-placeholder location="classpath:database.properties"/>
 

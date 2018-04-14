@@ -76,7 +76,9 @@
                                 <div class="planed-visits-title"><p><span class="glyphicon glyphicon-calendar"></span>МАЙБУТНІ ВІЗИТИ</p></div>
                                         <div class="visit-item">
                                             <c:forEach items="${appointmentListPlaned}" var="planedAppointment">
-                                                <p>${planedAppointment.date} - ${planedAppointment.doctor.name} ${planedAppointment.doctor.surname} <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<p>Дата: ${planedAppointment.date}</p><p>Лікар: ${planedAppointment.doctor.name} ${planedAppointment.doctor.surname}</p><p>Симптоми: ${planedAppointment.symptoms}</p>"></span>
+                                                <p>${planedAppointment.date} - ${planedAppointment.doctor.name} ${planedAppointment.doctor.surname}
+                                                    <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<p>Дата: ${planedAppointment.date}</p><p>Лікар: ${planedAppointment.doctor.name} ${planedAppointment.doctor.surname}</p><p>Симптоми: ${planedAppointment.symptoms}</p>"></span>
+                                                    <span data-patient-id="${planedAppointment.id}" id="cancelAppointment-btn" data-toggle="modal" data-target="#cancelAppointment-modal" class="glyphicon glyphicon-remove-circle"></span>
                                                 </p>
                                             </c:forEach>
                                         </div>
@@ -116,6 +118,29 @@
                                                 </>
                                                 <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
                                             </form>
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                            </div><!-- /.modal -->
+                            <div class="modal fade" id="cancelAppointment-modal" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <%--<h4 class="modal-title">Скасувати візит?</h4>--%>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="POST" action="/appointment/cancel" class="form-signin">
+                                                <p>Ви впевнені що ви бажаєте скасувати візит?</p>
+                                                <input type="hidden" name="appointmentId" value="">
+                                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                                <button class="btn btn-lg btn-primary btn-block btn-success" type="submit">Submit</button>
+                                            </form>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <%--<button type="button" class="btn btn-default" data-dismiss="modal">Ні</button>--%>
+                                            <%--<button type="button" class="btn btn-success">Так</button>--%>
                                         </div>
                                     </div><!-- /.modal-content -->
                                 </div><!-- /.modal-dialog -->
@@ -161,6 +186,11 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('span[data-toggle=tooltip]').tooltip();
+    });
+    $('#cancelAppointment-modal').on('show.bs.modal', function(e) {
+        var appointment_Id = $(e.relatedTarget).data('patient-id');
+        alert(appointment_Id);
+        $(e.currentTarget).find('input[name="appointmentId"]').val(appointment_Id);
     });
 </script>
 </body>
