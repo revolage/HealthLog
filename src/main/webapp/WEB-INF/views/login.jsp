@@ -20,6 +20,11 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 </head>
 <body>
+<header>
+    <div class="container">
+        <img class="healthlog-logo on-login-page" src="resources/img/HealthLog-logo.png" alt="">
+    </div>
+</header>
 <div class="container">
     <form>
 
@@ -32,15 +37,18 @@
         </div>
 
         <div class="form-group ${error != null ? 'has-error' : ''}">
+            <label class="disableStyles" for="email">Електронна пошта</label>
+            <input name="email" id="email" type="text" class="form-control" placeholder="Email" autofocus="true"/>
             <span>${message}</span>
-            <input name="username" type="text" class="form-control" placeholder="Username"
-                   autofocus="true"/>
-            <input name="password" type="password" class="form-control" placeholder="Password"/>
+        </div>
+        <div class="form-group ${error != null ? 'has-error' : ''}">
+            <label class="disableStyles" for="password">Пароль</label>
+            <input name="password" id="password" type="password" class="form-control" placeholder="Password"/>
             <span>${error}</span>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
-            <h4 class="text-center"><a href="${contextPath}/registration">Create an account</a></h4>
+            <button class="btn btn-lg btn-primary btn-block appointment" style="margin-top: 30px;" type="submit">Авторизація</button>
+            <h4 class="text-center"><a href="${contextPath}/registration">Створити новий акаунт</a></h4>
         </div>
 
     </form>

@@ -46,4 +46,9 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
     public void setAuthenticationManager(AuthenticationManager authenticationManager) {
         super.setAuthenticationManager(authenticationManager);
     }
+
+    @Override
+    protected String obtainUsername(HttpServletRequest request) {
+        return request.getParameter("email");
+    }
 }

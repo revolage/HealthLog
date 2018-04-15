@@ -15,14 +15,34 @@
     <link href="${contextPath}/resources/css/style.css" rel="stylesheet" >
 </head>
 <body>
+<header>
+    <div class="container">
+        <img class="healthlog-logo" src="resources/img/HealthLog-logo.png" alt="">
+        <div class="user-logout"><span>${pageContext.request.userPrincipal.name}</span> <div class="patientPhoto"><img src="${doctor.photo}"></div> <img src="resources/img/logout.png" class="logout-btn" onclick="document.forms['logoutForm'].submit()"></div>
+
+    </div>
+</header>
 <div class="container">
     <c:if test="${pageContext.request.userPrincipal.name != null}">
         <form id="logoutForm" method="POST" action="${contextPath}/logout">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
         </form>
-        <h2><span>${pageContext.request.userPrincipal.name}</span> | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
         <div class="container">
-            <h1>Розклад пацієнтів</h1>
+            <h2 class="text-center">Мій кабінет</h2>
+            <section class="main-patient-information main-doctor-information">
+                <div class="col-md-4">
+                    <div class="patient-photo">
+                        <img src="${doctor.photo}">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="text-block">
+                        <p class="patient-fullname">${doctor.name} ${doctor.surname}</p>
+                        <p>Відділ ${doctor.department.name}</p>
+                    </div>
+                </div>
+            </section>
+            <h1 class="text-center">Розклад пацієнтів</h1>
             <div class="row">
                 <section class="patient-list">
                     <c:if test="${appointmentListPlaned.size() > 0}">
@@ -30,39 +50,72 @@
                             <div class="patient">
                                 <span class="planedAppointment-date">${appointment.date}</span>
                                 <div class="patientPhoto"><img src="${appointment.patient.photo}"></div>
-                                <a href="/patienthistory/${appointment.patient.id}"><span class="patientName">${appointment.patient.name} ${appointment.patient.surname}</span></a>
+                                <span class="patientName">${appointment.patient.name} ${appointment.patient.surname}</span><a href="/patienthistory/${appointment.patient.id}" class="more-info-link" target="_blank" title="Історія пацієнта"><span class="glyphicon glyphicon-list-alt full-patient-info"></span></a>
 
                                 <p class="symptoms">Симптоми: ${appointment.symptoms}</p>
-                                <button type="button" class="appointment btn btn-primary btn-lg" data-toggle="modal" data-target="#appointment_id${appointment.id}">
+                                <button type="button" class="btn appointment small" data-toggle="modal" data-target="#appointment_id${appointment.id}">
                                     Прийом
                                 </button>
-                                <div class="modal fade" id="appointment_id${appointment.id}" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog" role="document">
+                                <span data-patient-id="${appointment.id}" class="glyphicon glyphicon-trash doctor-cancel-btn" id="cancelAppointment-btn" title="Скасувати візит" data-toggle="modal" data-target="#cancelAppointment-modal" class="glyphicon glyphicon-trash"></span>
+                                <div class="modal fade" id="cancelAppointment-modal" tabindex="-1" role="dialog">
+                                    <div class="vertical-alignment-helper">
+                                        <div class="modal-dialog vertical-align-center" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title">Прийом пацієнта: ${appointment.patient.name} ${appointment.patient.surname}</h4>
+                                                    <%--<h4 class="modal-title">Скасувати візит?</h4>--%>
                                             </div>
                                             <div class="modal-body">
-                                                <span class="patientName">${appointment.patient.name} ${appointment.patient.surname}</span>
-                                                <div class="patientPhoto"><img src="${appointment.patient.photo}"></div>
-                                                <p class="symptoms">Симптоми: ${appointment.symptoms}</p>
-                                                <h2 class="form-signin-heading">Призначити лікування</h2>
+                                                <form method="POST" action="/appointment/cancel" class="form-signin">
+                                                    <p>Ви впевнені що ви бажаєте скасувати візит?</p>
+                                                    <input type="hidden" name="appointmentId" value="">
+                                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                                    <button class="btn btn-lg btn-primary btn-block btn-success" type="submit">Скасувати</button>
+                                                </form>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                    <%--<button type="button" class="btn btn-default" data-dismiss="modal">Ні</button>--%>
+                                                    <%--<button type="button" class="btn btn-success">Так</button>--%>
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                    </div>
+                                </div><!-- /.modal -->
+                                <div class="modal fade" id="appointment_id${appointment.id}" tabindex="-1" role="dialog">
+                                    <div class="vertical-alignment-helper">
+                                        <div class="modal-dialog vertical-align-center" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title text-center">Прийом пацієнта</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="patientPhoto  atModal"><img src="${appointment.patient.photo}"></div>
+                                                <p class="patientName text-center">${appointment.patient.name} ${appointment.patient.surname}</p>
+                                                <p class="symptoms text-center">Симптоми: ${appointment.symptoms}</p>
+                                                <h2 class="form-signin-heading text-center">Призначити лікування</h2>
                                                 <!-- form -->
                                                 <form method="POST" action="/appointment/${appointment.id}" class="form-signin">
                                                     <div class="form-group">
-                                                        <input name="diagnosis" placeholder="Діагноз" type="text" class="form-control"  autofocus="true"/>
+                                                        <label class="disableStyles" for="diagnosis">Діагноз</label>
+                                                        <textarea name="diagnosis" id="diagnosis" placeholder="Діагноз" class="form-control noresize" rows="2" autofocus="true"></textarea>
+                                                        <%--<input name="diagnosis" placeholder="Діагноз" type="text" class="form-control"  autofocus="true"/>--%>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input name="medication" placeholder="Лікування" type="text"  class="form-control"/>
+                                                        <label class="disableStyles" for="medication">Лікування</label>
+                                                        <textarea name="medication" id="medication" placeholder="Лікування" class="form-control noresize" rows="2"></textarea>
+                                                        <%--<input name="medication" placeholder="Лікування" type="text"  class="form-control"/>--%>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input name="notes" placeholder="Нотатки" type="text"  class="form-control" />
-                                                    </div>
-                                                    <input name="${_csrf.parameterName}" value="${_csrf.token}" type="hidden"/>
-                                                    <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
-                                                </form>
-                                                    <%--</form:form>--%>
+                                                            <%--<input name="notes" placeholder="Нотатки" type="text"  class="form-control" />--%>
+                                                            <label class="disableStyles" for="notes">Нотатки</label>
+                                                            <textarea name="notes" id="notes" placeholder="Нотатки" class="form-control noresize" rows="2"></textarea>
+                                                        </div>
+                                                        <input name="${_csrf.parameterName}" value="${_csrf.token}" type="hidden"/>
+                                                        <button type="submit" class="btn btn-lg btn-primary btn-block appointment ">Зберегти</button>
+                                                    </form>
+                                                        <%--</form:form>--%>
                                             </div>
                                             <div class="modal-footer">
                                                     <%--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
@@ -70,6 +123,7 @@
                                             </div>
                                         </div><!-- /.modal-content -->
                                     </div><!-- /.modal-dialog -->
+                                    </div>
                                 </div><!-- /.modal -->
                             </div><!-- /.patient -->
                         </c:forEach>
@@ -87,14 +141,9 @@
         $('span[data-toggle=tooltip]').tooltip();
     });
 
-    $('#link').click(function () {
-        var src = 'http://www.youtube.com/v/FSi2fJALDyQ&amp;autoplay=1';
-        $('#myModal').modal('show');
-        $('#myModal iframe').attr('src', src);
-    });
-
-    $('#myModal button').click(function () {
-        $('#myModal iframe').removeAttr('src');
+    $('#cancelAppointment-modal').on('show.bs.modal', function(e) {
+        var appointment_Id = $(e.relatedTarget).data('patient-id');
+        $(e.currentTarget).find('input[name="appointmentId"]').val(appointment_Id);
     });
 </script>
 

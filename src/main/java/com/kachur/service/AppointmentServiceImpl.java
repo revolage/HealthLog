@@ -19,13 +19,18 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     @Override
     public List<Appointment> appointmentsOfUserPlaned(Long id) {
-        return appointmentDao.findAppointmentsByPatientIdAndIsVisitedAndIsCanceled(id,false,false);
+        return appointmentDao.findAppointmentsByPatientIdAndIsVisitedAndIsCanceledOrderByDateDesc(id,false,false);
     }
 
     @Override
     public List<Appointment> appointmentsOfUserEnded(Long id) {
-        return appointmentDao.findAppointmentsByPatientIdAndIsVisitedAndIsCanceled(id, true,false);
+        return appointmentDao.findAppointmentsByPatientIdAndIsVisitedAndIsCanceledOrderByDateDesc(id, true,false);
     }
+
+//    @Override
+//    public List<Appointment> appointmentsOfUserEndedSortedByDesc(Long id) {
+//        return appointmentDao.findAppointmentsByPatientIdAndIsVisitedAndIsCanceledOrderByDateDesc(id, true,false);
+//    }
 
     @Override
     public List<Appointment> appointmentsOfDoctorPlaned(Long doctor_id) {

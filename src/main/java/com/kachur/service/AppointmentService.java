@@ -12,6 +12,8 @@ public interface AppointmentService {
 
     List<Appointment> appointmentsOfUserEnded(Long id);
 
+//    List<Appointment> appointmentsOfUserEndedSortedByDesc(Long id);
+
     List<Appointment> appointmentsOfDoctorPlaned(Long doctor_id);
 
     List<Appointment> appointmentsOfDoctorPlanedSorted(Long doctor_id);

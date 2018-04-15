@@ -26,12 +26,11 @@
 <div class="container">
 
     <form:form method="POST" modelAttribute="registrationForm" class="form-signin">
-        <h2 class="form-signin-heading">Створіть ваш аккаунт</h2>
+        <h2 class="form-signin-heading text-center">Створіть ваш аккаунт</h2>
 
         <spring:bind path="username">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="username" class="form-control" placeholder="Username"
-                            autofocus="true"></form:input>
+                <form:input type="text" path="username" class="form-control" placeholder="Username" autofocus="true"></form:input>
                 <form:errors path="username"></form:errors>
             </div>
         </spring:bind>
@@ -74,8 +73,6 @@
                 <form:errors path="name"></form:errors>
             </div>
         </spring:bind>
-
-
 
         <spring:bind path="fathername">
             <div class="form-group ${status.error ? 'has-error' : ''}">

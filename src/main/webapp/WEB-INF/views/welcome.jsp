@@ -18,12 +18,18 @@
     <link href="${contextPath}/resources/css/style.css" rel="stylesheet" >
 </head>
 <body>
+<header>
+    <div class="container">
+        <img class="healthlog-logo" src="resources/img/HealthLog-logo.png" alt="">
+        <div class="user-logout"><span>${pageContext.request.userPrincipal.name}</span> <div class="patientPhoto"><img src="${patient.photo}"></div> <img src="resources/img/logout.png" class="logout-btn" onclick="document.forms['logoutForm'].submit()"></div>
+    </div>
+</header>
 <div class="container">
     <c:if test="${pageContext.request.userPrincipal.name != null}">
         <form id="logoutForm" method="POST" accept-charset="utf-8" action="${contextPath}/logout">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
         </form>
-        <h2><span>${pageContext.request.userPrincipal.name}</span> | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
+        <h2 class="text-center">Моя медична карта</h2>
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
@@ -84,43 +90,39 @@
                                         </div>
                             </section>
                             <div class="modal fade" id="reserveAppointemnt" tabindex="-1" role="dialog">
-                                <div class="modal-dialog" role="document">
+                                <div class="vertical-alignment-helper">
+                                    <div class="modal-dialog vertical-align-center" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">${patient.name} ${patient.surname}</h4>
+                                            <h4 class="modal-title text-center">Запис на прийом</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <div class="patientPhoto"><img src="${patient.photo}"></div>
-                                            <!-- form -->
                                             <form method="POST" action="/appointment" class="form-signin">
-
                                                 <div class="form-group ${status.error ? 'has-error' : ''}">
-                                                <input type="date" name="date" class="form-control" placeholder="Лікування"
-                                                autofocus="true"></input>
+                                                    <label class="disableStyles" for="date">Оберіть дату прийому</label>
+                                                    <input type="date" name="date" id="date" class="form-control">
                                                 </div>
-
-                                                <select name="doctorId" id="">
-                                                    <c:forEach items="${doctorList}" var="doctor">
-                                                        <option value="${doctor.id}">${doctor.name} ${doctor.surname}</option>
-                                                    </c:forEach>
-                                                </select>
-                                                <%--<spring:bind path="doctor.name">--%>
-                                                <%--<div class="form-group ${status.error ? 'has-error' : ''}">--%>
-                                                <%--<form:input type="text" path="diagnosis" class="form-control" placeholder="Діагноз"></form:input>--%>
-
-                                                <%--</div>--%>
-                                                <%--</spring:bind>--%>
                                                 <div class="form-group ${status.error ? 'has-error' : ''}">
-                                                    <input type="text" name="symptoms" class="form-control" placeholder="Симптоми"/>
+                                                    <label class="disableStyles" for="doctorsList">Оберіть лікаря</label>
+                                                    <select name="doctorId" id="doctorsList" class="form-control">
+                                                        <c:forEach items="${doctorList}" var="doctor">
+                                                            <option value="${doctor.id}">${doctor.name} ${doctor.surname}</option>
+                                                        </c:forEach>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group ${status.error ? 'has-error' : ''}">
+                                                    <label class="disableStyles" for="doctorsList">Опишіть симптоми</label>
+                                                    <input type="text" name="symptoms" id="symptoms" class="form-control" placeholder="Симптоми"/>
                                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                                 </div>
                                                 </>
-                                                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                                                <button class="btn btn-lg btn-primary btn-block appointment " type="submit">Записатися</button>
                                             </form>
                                         </div>
                                     </div><!-- /.modal-content -->
                                 </div><!-- /.modal-dialog -->
+                                </div>
                             </div><!-- /.modal -->
                             <div class="modal fade" id="cancelAppointment-modal" tabindex="-1" role="dialog">
                                 <div class="modal-dialog" role="document">
@@ -134,7 +136,7 @@
                                                 <p>Ви впевнені що ви бажаєте скасувати візит?</p>
                                                 <input type="hidden" name="appointmentId" value="">
                                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                                <button class="btn btn-lg btn-primary btn-block btn-success" type="submit">Submit</button>
+                                                <button class="btn btn-lg btn-primary btn-block btn-success" type="submit">Скасувати</button>
                                             </form>
 
                                         </div>
@@ -189,7 +191,6 @@
     });
     $('#cancelAppointment-modal').on('show.bs.modal', function(e) {
         var appointment_Id = $(e.relatedTarget).data('patient-id');
-        alert(appointment_Id);
         $(e.currentTarget).find('input[name="appointmentId"]').val(appointment_Id);
     });
 </script>
